@@ -45,12 +45,18 @@ struct TicketView: View {
             subPart
         }
         .aspectRatio(2.5, contentMode: .fit)
+        .overlay(
+            Image("NoiseTexture")
+                .resizable().aspectRatio(contentMode: .fill)
+                .blendMode(.multiply)
+                .opacity(0.03)
+        )
     }
     
     private var mainPart: some View {
         VStack(alignment: .leading) {
             Text(title)
-                .font(.system(.headline, design: .default).weight(.heavy))
+                .scaledFont(name: CustomFont.gothicNeoHeavy, size: 17)
             
             Spacer()
             
@@ -72,6 +78,7 @@ struct TicketView: View {
     
     private var subPart: some View {
         Text("10:23")
+            .fontWeight(.heavy)
             .rotationEffect(Angle(degrees: -90))
             .padding()
             .frame(maxHeight: .infinity)
@@ -81,7 +88,7 @@ struct TicketView: View {
             )
             .overlay(
                 Line()
-                    .stroke(Color.primary, style: .init(lineWidth: 1, dash: [8, 8]))
+                    .stroke(Color.primary, style: .init(lineWidth: 2, dash: [8, 8]))
                     .frame(width: 1)
                     .padding(.vertical, cornerRadius)
                 ,alignment: .leading

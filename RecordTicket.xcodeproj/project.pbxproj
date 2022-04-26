@@ -14,6 +14,11 @@
 		21222F382817C21900BFCA6E /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21222F372817C21900BFCA6E /* TicketView.swift */; };
 		21222F3A2817C24F00BFCA6E /* InnerRoundedRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21222F392817C24F00BFCA6E /* InnerRoundedRectangle.swift */; };
 		21222F3C2817CDB200BFCA6E /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21222F3B2817CDB200BFCA6E /* Line.swift */; };
+		21222F3F2817D68F00BFCA6E /* AppleSDGothicNeo.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 21222F3E2817D68A00BFCA6E /* AppleSDGothicNeo.ttc */; };
+		21222F412817D6B200BFCA6E /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21222F402817D6B200BFCA6E /* Font.swift */; };
+		21222F442817D8C500BFCA6E /* SpoqaHanSansNeo-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 21222F432817D8C000BFCA6E /* SpoqaHanSansNeo-Regular.otf */; };
+		21222F452817D8C500BFCA6E /* SpoqaHanSansNeo-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 21222F422817D8C000BFCA6E /* SpoqaHanSansNeo-Bold.otf */; };
+		21222F472817D96000BFCA6E /* Gilroy-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 21222F462817D96000BFCA6E /* Gilroy-ExtraBold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +30,12 @@
 		21222F372817C21900BFCA6E /* TicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketView.swift; sourceTree = "<group>"; };
 		21222F392817C24F00BFCA6E /* InnerRoundedRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerRoundedRectangle.swift; sourceTree = "<group>"; };
 		21222F3B2817CDB200BFCA6E /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		21222F3E2817D68A00BFCA6E /* AppleSDGothicNeo.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeo.ttc; sourceTree = "<group>"; };
+		21222F402817D6B200BFCA6E /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		21222F422817D8C000BFCA6E /* SpoqaHanSansNeo-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Bold.otf"; sourceTree = "<group>"; };
+		21222F432817D8C000BFCA6E /* SpoqaHanSansNeo-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Regular.otf"; sourceTree = "<group>"; };
+		21222F462817D96000BFCA6E /* Gilroy-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-ExtraBold.otf"; sourceTree = "<group>"; };
+		21222F482817DA1800BFCA6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +68,8 @@
 		211C69D82816BA6D00869592 /* RecordTicket */ = {
 			isa = PBXGroup;
 			children = (
+				21222F482817DA1800BFCA6E /* Info.plist */,
+				21222F3D2817D65600BFCA6E /* Fonts */,
 				211C69D92816BA6D00869592 /* RecordTicketApp.swift */,
 				211C69DB2816BA6D00869592 /* ContentView.swift */,
 				21222F372817C21900BFCA6E /* TicketView.swift */,
@@ -74,6 +87,18 @@
 				211C69E02816BA7000869592 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		21222F3D2817D65600BFCA6E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				21222F462817D96000BFCA6E /* Gilroy-ExtraBold.otf */,
+				21222F422817D8C000BFCA6E /* SpoqaHanSansNeo-Bold.otf */,
+				21222F432817D8C000BFCA6E /* SpoqaHanSansNeo-Regular.otf */,
+				21222F3E2817D68A00BFCA6E /* AppleSDGothicNeo.ttc */,
+				21222F402817D6B200BFCA6E /* Font.swift */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +160,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				211C69E12816BA7000869592 /* Preview Assets.xcassets in Resources */,
+				21222F452817D8C500BFCA6E /* SpoqaHanSansNeo-Bold.otf in Resources */,
+				21222F3F2817D68F00BFCA6E /* AppleSDGothicNeo.ttc in Resources */,
 				211C69DE2816BA7000869592 /* Assets.xcassets in Resources */,
+				21222F442817D8C500BFCA6E /* SpoqaHanSansNeo-Regular.otf in Resources */,
+				21222F472817D96000BFCA6E /* Gilroy-ExtraBold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +177,7 @@
 			files = (
 				21222F3A2817C24F00BFCA6E /* InnerRoundedRectangle.swift in Sources */,
 				21222F382817C21900BFCA6E /* TicketView.swift in Sources */,
+				21222F412817D6B200BFCA6E /* Font.swift in Sources */,
 				211C69DC2816BA6D00869592 /* ContentView.swift in Sources */,
 				211C69DA2816BA6D00869592 /* RecordTicketApp.swift in Sources */,
 				21222F3C2817CDB200BFCA6E /* Line.swift in Sources */,
@@ -286,6 +316,8 @@
 				DEVELOPMENT_TEAM = VT69ZW2DRC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RecordTicket/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RecordTicket;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -315,6 +347,8 @@
 				DEVELOPMENT_TEAM = VT69ZW2DRC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RecordTicket/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RecordTicket;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

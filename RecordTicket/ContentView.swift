@@ -11,13 +11,14 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Text("Records")
-                .font(.title.weight(.heavy))
+                .scaledFont(name: CustomFont.gilroyExtraBold, size: 28)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding([.top, .horizontal], 20)
-                .padding(.vertical, 20)
+                .padding(.horizontal, 20)
+                .padding(.top, 40)
             
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 20) {
+                    Spacer().frame(height: 0)
                     ForEach(0..<3) { index in
                         let sample = SampleData.tickets[index]
                         TicketView(title: sample.title, date: sample.date, location: sample.location, length: sample.length
