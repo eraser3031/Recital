@@ -11,6 +11,9 @@
 		211C69DC2816BA6D00869592 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211C69DB2816BA6D00869592 /* ContentView.swift */; };
 		211C69DE2816BA7000869592 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 211C69DD2816BA7000869592 /* Assets.xcassets */; };
 		211C69E12816BA7000869592 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 211C69E02816BA7000869592 /* Preview Assets.xcassets */; };
+		21222F382817C21900BFCA6E /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21222F372817C21900BFCA6E /* TicketView.swift */; };
+		21222F3A2817C24F00BFCA6E /* InnerRoundedRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21222F392817C24F00BFCA6E /* InnerRoundedRectangle.swift */; };
+		21222F3C2817CDB200BFCA6E /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21222F3B2817CDB200BFCA6E /* Line.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		211C69DB2816BA6D00869592 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		211C69DD2816BA7000869592 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		211C69E02816BA7000869592 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		21222F372817C21900BFCA6E /* TicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketView.swift; sourceTree = "<group>"; };
+		21222F392817C24F00BFCA6E /* InnerRoundedRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerRoundedRectangle.swift; sourceTree = "<group>"; };
+		21222F3B2817CDB200BFCA6E /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,9 @@
 			children = (
 				211C69D92816BA6D00869592 /* RecordTicketApp.swift */,
 				211C69DB2816BA6D00869592 /* ContentView.swift */,
+				21222F372817C21900BFCA6E /* TicketView.swift */,
+				21222F3B2817CDB200BFCA6E /* Line.swift */,
+				21222F392817C24F00BFCA6E /* InnerRoundedRectangle.swift */,
 				211C69DD2816BA7000869592 /* Assets.xcassets */,
 				211C69DF2816BA7000869592 /* Preview Content */,
 			);
@@ -137,8 +146,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21222F3A2817C24F00BFCA6E /* InnerRoundedRectangle.swift in Sources */,
+				21222F382817C21900BFCA6E /* TicketView.swift in Sources */,
 				211C69DC2816BA6D00869592 /* ContentView.swift in Sources */,
 				211C69DA2816BA6D00869592 /* RecordTicketApp.swift in Sources */,
+				21222F3C2817CDB200BFCA6E /* Line.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,10 +207,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = RecordTicket;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -249,9 +263,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = RecordTicket;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
