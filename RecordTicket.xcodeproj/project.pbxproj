@@ -19,6 +19,9 @@
 		21222F442817D8C500BFCA6E /* SpoqaHanSansNeo-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 21222F432817D8C000BFCA6E /* SpoqaHanSansNeo-Regular.otf */; };
 		21222F452817D8C500BFCA6E /* SpoqaHanSansNeo-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 21222F422817D8C000BFCA6E /* SpoqaHanSansNeo-Bold.otf */; };
 		21222F472817D96000BFCA6E /* Gilroy-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 21222F462817D96000BFCA6E /* Gilroy-ExtraBold.otf */; };
+		2174386E28191073007923AB /* CustomTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2174386D28191073007923AB /* CustomTab.swift */; };
+		21743870281926AC007923AB /* TicketListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2174386F281926AC007923AB /* TicketListView.swift */; };
+		21743872281926B5007923AB /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21743871281926B5007923AB /* SettingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		21222F432817D8C000BFCA6E /* SpoqaHanSansNeo-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Regular.otf"; sourceTree = "<group>"; };
 		21222F462817D96000BFCA6E /* Gilroy-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-ExtraBold.otf"; sourceTree = "<group>"; };
 		21222F482817DA1800BFCA6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2174386D28191073007923AB /* CustomTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTab.swift; sourceTree = "<group>"; };
+		2174386F281926AC007923AB /* TicketListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketListView.swift; sourceTree = "<group>"; };
+		21743871281926B5007923AB /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +78,10 @@
 				21222F3D2817D65600BFCA6E /* Fonts */,
 				211C69D92816BA6D00869592 /* RecordTicketApp.swift */,
 				211C69DB2816BA6D00869592 /* ContentView.swift */,
+				2174386F281926AC007923AB /* TicketListView.swift */,
+				21743871281926B5007923AB /* SettingView.swift */,
 				21222F372817C21900BFCA6E /* TicketView.swift */,
+				2174386D28191073007923AB /* CustomTab.swift */,
 				21222F3B2817CDB200BFCA6E /* Line.swift */,
 				21222F392817C24F00BFCA6E /* InnerRoundedRectangle.swift */,
 				211C69DD2816BA7000869592 /* Assets.xcassets */,
@@ -176,6 +185,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				21222F3A2817C24F00BFCA6E /* InnerRoundedRectangle.swift in Sources */,
+				2174386E28191073007923AB /* CustomTab.swift in Sources */,
+				21743870281926AC007923AB /* TicketListView.swift in Sources */,
+				21743872281926B5007923AB /* SettingView.swift in Sources */,
 				21222F382817C21900BFCA6E /* TicketView.swift in Sources */,
 				21222F412817D6B200BFCA6E /* Font.swift in Sources */,
 				211C69DC2816BA6D00869592 /* ContentView.swift in Sources */,

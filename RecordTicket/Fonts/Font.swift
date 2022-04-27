@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CustomFont {
     static let gothicNeoHeavy = "AppleSDGothicNeo-Heavy"
+    static let gothicNeoExBold = "AppleSDGothicNeo-ExtraBold"
     static let spoqaRegular = "SpoqaHanSansNeo-Regular"
     static let spoqaBold = "SpoqaHanSansNeo-Bold"
     static let gilroyExtraBold = "Gilroy-ExtraBold"
