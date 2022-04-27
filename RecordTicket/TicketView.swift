@@ -78,6 +78,7 @@ struct TicketView: View {
             Text(title)
                 .font(.headline)
                 .scaledFont(name: CustomFont.gothicNeoHeavy, size: 17)
+                .lineLimit(1)
             
             Spacer()
             

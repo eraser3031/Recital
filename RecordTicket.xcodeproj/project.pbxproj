@@ -20,6 +20,8 @@
 		21222F452817D8C500BFCA6E /* SpoqaHanSansNeo-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 21222F422817D8C000BFCA6E /* SpoqaHanSansNeo-Bold.otf */; };
 		21222F472817D96000BFCA6E /* Gilroy-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 21222F462817D96000BFCA6E /* Gilroy-ExtraBold.otf */; };
 		21638D7B28194D99001AA45A /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21638D7A28194D99001AA45A /* RecordView.swift */; };
+		21638D7D28196CA7001AA45A /* DecorateTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21638D7C28196CA7001AA45A /* DecorateTicketView.swift */; };
+		21638D7F281976E0001AA45A /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21638D7E281976E0001AA45A /* PhotoPicker.swift */; };
 		2174386E28191073007923AB /* CustomTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2174386D28191073007923AB /* CustomTab.swift */; };
 		21743870281926AC007923AB /* TicketListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2174386F281926AC007923AB /* TicketListView.swift */; };
 		21743872281926B5007923AB /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21743871281926B5007923AB /* SettingView.swift */; };
@@ -42,6 +44,8 @@
 		21222F462817D96000BFCA6E /* Gilroy-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-ExtraBold.otf"; sourceTree = "<group>"; };
 		21222F482817DA1800BFCA6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		21638D7A28194D99001AA45A /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
+		21638D7C28196CA7001AA45A /* DecorateTicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecorateTicketView.swift; sourceTree = "<group>"; };
+		21638D7E281976E0001AA45A /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		2174386D28191073007923AB /* CustomTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTab.swift; sourceTree = "<group>"; };
 		2174386F281926AC007923AB /* TicketListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketListView.swift; sourceTree = "<group>"; };
 		21743871281926B5007923AB /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -82,6 +86,8 @@
 				21222F3D2817D65600BFCA6E /* Fonts */,
 				211C69D92816BA6D00869592 /* RecordTicketApp.swift */,
 				21638D7A28194D99001AA45A /* RecordView.swift */,
+				21638D7C28196CA7001AA45A /* DecorateTicketView.swift */,
+				21638D7E281976E0001AA45A /* PhotoPicker.swift */,
 				211C69DB2816BA6D00869592 /* ContentView.swift */,
 				2174386F281926AC007923AB /* TicketListView.swift */,
 				21743871281926B5007923AB /* SettingView.swift */,
@@ -191,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21222F3A2817C24F00BFCA6E /* InnerRoundedRectangle.swift in Sources */,
+				21638D7D28196CA7001AA45A /* DecorateTicketView.swift in Sources */,
 				2174386E28191073007923AB /* CustomTab.swift in Sources */,
 				21743870281926AC007923AB /* TicketListView.swift in Sources */,
 				21638D7B28194D99001AA45A /* RecordView.swift in Sources */,
@@ -199,6 +206,7 @@
 				21222F412817D6B200BFCA6E /* Font.swift in Sources */,
 				211C69DC2816BA6D00869592 /* ContentView.swift in Sources */,
 				211C69DA2816BA6D00869592 /* RecordTicketApp.swift in Sources */,
+				21638D7F281976E0001AA45A /* PhotoPicker.swift in Sources */,
 				21222F3C2817CDB200BFCA6E /* Line.swift in Sources */,
 				2174387428193658007923AB /* Style.swift in Sources */,
 			);

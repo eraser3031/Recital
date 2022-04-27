@@ -8,25 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var tabSelection: TabBarItem = .tickets
+    @State private var showRecordView = false
+    
     var body: some View {
-        VStack {
-            Text("Records")
-                .scaledFont(name: CustomFont.gilroyExtraBold, size: 28)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal, 20)
-                .padding(.top, 40)
+        CustomTabBarContainerView(selection: $tabSelection, action: {showRecordView = true}) {
+            TicketListView()
+                .tabBarItem(tab: .tickets, selection: $tabSelection)
             
-            ScrollView(showsIndicators: false) {
-                VStack(spacing: 20) {
-                    Spacer().frame(height: 0)
-                    ForEach(0..<3) { index in
-                        let sample = SampleData.tickets[index]
-                        TicketView(title: sample.title, date: sample.date, location: sample.location, length: sample.length
-                                   ,color: SampleData.colors[index])
-                    }
-                }
-                .padding(.horizontal, 20)
-            }
+            SettingView()
+                .tabBarItem(tab: .settings, selection: $tabSelection)
+        }
+        .fullScreenCover(isPresented: $showRecordView) {
+            RecordView()
         }
     }
 }

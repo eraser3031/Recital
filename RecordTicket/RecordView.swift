@@ -10,68 +10,87 @@ import SwiftUI
 struct RecordView: View {
     
     @Environment(\.dismiss) var dismiss
+    @State private var showDecorateTicketView = false
     @State private var showDialog = false
     
     var body: some View {
-        VStack {
-            VStack(spacing: 8) {
-                Text("효자동")
-                    .font(.title.bold())
-                    .padding(.top, 20)
-                
-                Text("10:04 PM")
-                    .font(.headline)
-                    .foregroundColor(.gray)
-            }
-            
-            Spacer()
-            
-            VStack(spacing: 20) {
-                recordCircle
-                    .frame(width: 230, height: 230)
-                
-                Text("00:13:90")
-                    .font(.system(size: 54, weight: .bold, design: .rounded))
-            }
-            
-            Spacer()
-            
+        NavigationView {
             VStack {
-                Button(role: .destructive) {
-                    print("hi")
-                } label: {
-                    Text("완료")
+                VStack(spacing: 8) {
+                    Text("효자동")
+                        .font(.title.bold())
+                        .padding(.top, 20)
+                    
+                    Text("10:04 PM")
                         .font(.headline)
+                        .foregroundColor(.gray)
                 }
-                .buttonStyle(ModalBottomButtonStyle())
                 
-                Button(role: .cancel) {
-                    showDialog = true
-                } label: {
-                    Text("취소")
+                Spacer()
+                
+                VStack(spacing: 20) {
+                    recordCircle
+                        .frame(width: 230, height: 230)
+                    
+                    Text("00:13:90")
+                        .font(.system(size: 54, weight: .bold, design: .rounded))
                 }
-                .buttonStyle(ModalBottomButtonStyle())
-                .confirmationDialog("정말로 녹음을 취소하시겠어요?", isPresented: $showDialog, titleVisibility: .visible) {
-                    Button("네", role: .destructive) {
+                
+                Spacer()
+                
+                VStack {
+                    Button(role: .destructive) {
+                        showDecorateTicketView = true
+                    } label: {
+                        Text("완료")
+                            .font(.headline)
+                    }
+                    .buttonStyle(ModalBottomButtonStyle())
+//                    .fullScreenCover(isPresented: $showDecorateTicketView) {
+//                        DecorateTicketView()
+//                    }
+                    
+                    Button(role: .cancel) {
+                        showDialog = true
+                    } label: {
+                        Text("취소")
+                    }
+                    .buttonStyle(ModalBottomButtonStyle())
+                    .confirmationDialog("정말로 녹음을 취소하시겠어요?", isPresented: $showDialog, titleVisibility: .visible) {
+                        Button("네", role: .destructive) {
+                            dismiss()
+                        }
+                        
+                        Button("아니요", role: .cancel) {
+                            showDialog = false
+                        }
+                    }
+                }
+                .padding(.bottom, 10)
+            }
+            .navigationBarHidden(true)
+            .background(
+                NavigationLink(isActive: $showDecorateTicketView, destination: {
+                    DecorateTicketView() {
                         dismiss()
                     }
-                    
-                    Button("아니요", role: .cancel) {
-                        showDialog = false
-                    }
-                }
-            }
-            .padding(.bottom, 10)
+                    .navigationBarHidden(true)
+                    .navigationBarBackButtonHidden(true)
+                }, label: {
+                    EmptyView()
+                })
+            )
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     private var recordCircle: some View {
         ZStack {
             Circle()
-                .fill(.red.opacity(0.06))
+                .fill(.red.opacity(0.08))
             
             Circle()
-                .fill(.red.opacity(0.12))
+                .fill(.red.opacity(0.1))
                 .padding(12)
             
             Circle()
