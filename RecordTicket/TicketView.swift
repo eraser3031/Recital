@@ -29,6 +29,8 @@ enum TicketCase: String {
 
 struct TicketView: View {
     
+    @State private var showDialog = false
+    
     var title: LocalizedStringKey
     var date: Date
     var location: LocalizedStringKey
@@ -45,12 +47,30 @@ struct TicketView: View {
             subPart
         }
         .aspectRatio(2.5, contentMode: .fit)
-//        .overlay(
-//            Image("NoiseTexture")
-//                .resizable().aspectRatio(contentMode: .fill)
-//                .blendMode(.multiply)
-//                .opacity(0.03)
-//        )
+        .swipeActions(edge: .trailing) {
+            Button(role: .destructive) {
+                showDialog = true
+            } label: {
+                Label("Delete", systemImage: "trash")
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 12, style: .continuous)
+                            .fill(.gray)
+                    )
+            }
+            Button { print("hi2") } label: {
+                Label("Flag", systemImage: "flag")
+            }
+        }
+        .confirmationDialog("정말로 해당 녹음을 삭제하시겠어요?", isPresented: $showDialog, titleVisibility: .visible) {
+            Button("네", role: .destructive) {
+                print("Delete")
+            }
+            
+            Button("아니요", role: .cancel) {
+                showDialog = false
+            }
+        }
     }
     
     private var mainPart: some View {

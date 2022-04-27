@@ -14,16 +14,18 @@ struct CustomTabBarContainerView<Content: View>: View {
     @Binding var selection: TabBarItem
     let content: Content
     @State private var tabs: [TabBarItem] = []
+    let action: () -> Void
     
-    init(selection: Binding<TabBarItem>, @ViewBuilder content: () -> Content) {
+    init(selection: Binding<TabBarItem>, action: @escaping () -> Void, @ViewBuilder content: () -> Content) {
         self._selection = selection
+        self.action = action
         self.content = content()
     }
     
     var body: some View {
         ZStack(alignment: .bottom) {
             content
-            CustomTabBarView(tabs: tabs, selection: $selection)
+            CustomTabBarView(tabs: tabs, action: action, selection: $selection)
         }
         .onPreferenceChange(TabBarItemsPreferenceKey.self) { value in
             self.tabs = value
@@ -36,7 +38,14 @@ struct CustomTabBarContainerView<Content: View>: View {
 struct CustomTabBarView: View {
     
     let tabs: [TabBarItem]
+    let action: () -> Void
     @Binding var selection: TabBarItem
+    
+    init(tabs: [TabBarItem], action: @escaping () -> Void, selection: Binding<TabBarItem>) {
+        self.tabs = tabs
+        self.action = action
+        self._selection = selection
+    }
     
     var body: some View {
         tabBarVersion2
@@ -72,21 +81,25 @@ extension CustomTabBarView {
             ,alignment: .top
         )
         .overlay{
-            Button {
-                print("hi")
-            } label: {
-                ZStack {
-                    Circle()
-                        .frame(width: 64, height: 64)
-                    
-                    Image(systemName: "waveform")
-                        .font(.largeTitle)
-                        .foregroundColor(Color(.systemBackground))
-                }
-            }
-            .buttonStyle(.plain)
-            .offset(y: -32)
+            recordButton
+                .offset(y: -32)
         }
+    }
+    
+    private var recordButton: some View {
+        Button {
+            action()
+        } label: {
+            ZStack {
+                Circle()
+                    .frame(width: 64, height: 64)
+                
+                Image(systemName: "waveform")
+                    .font(.largeTitle)
+                    .foregroundColor(Color(.systemBackground))
+            }
+        }
+        .buttonStyle(TabBarButtonStyle())
     }
     
     func switchToTab(tab: TabBarItem) {
@@ -146,31 +159,3 @@ extension View {
         modifier(TabBarItemViewModifier(tab: tab, selection: selection))
     }
 }
-
-// Tab Bar Container View
-
-struct CusstomTabBarContainerView<Content: View>: View {
-    
-    @Binding var selection: TabBarItem
-    let content: Content
-    @State private var tabs: [TabBarItem] = []
-    
-    init(selection: Binding<TabBarItem>, @ViewBuilder content: () -> Content) {
-        self._selection = selection
-        self.content = content()
-    }
-    
-    var body: some View {
-        ZStack(alignment: .bottom) {
-            content
-                .edgesIgnoringSafeArea(.all)
-            
-            CustomTabBarView(tabs: tabs, selection: $selection)
-        }
-        .onPreferenceChange(TabBarItemsPreferenceKey.self) { value in
-            self.tabs = value
-        }
-    }
-     
-}
- 
