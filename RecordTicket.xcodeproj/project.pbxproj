@@ -29,6 +29,7 @@
 		21EF6FF6281A5F8D00B60288 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EF6FF5281A5F8D00B60288 /* Color.swift */; };
 		21EF6FF8281A6AFF00B60288 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EF6FF7281A6AFF00B60288 /* PlayerView.swift */; };
 		21EF6FFA281A6BAD00B60288 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EF6FF9281A6BAD00B60288 /* RoundedCorner.swift */; };
+		21EF6FFC281A7D1200B60288 /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EF6FFB281A7D1200B60288 /* TextAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		21EF6FF5281A5F8D00B60288 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		21EF6FF7281A6AFF00B60288 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		21EF6FF9281A6BAD00B60288 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		21EF6FFB281A7D1200B60288 /* TextAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				2174386F281926AC007923AB /* TicketListView.swift */,
 				21743871281926B5007923AB /* SettingView.swift */,
 				21222F372817C21900BFCA6E /* TicketView.swift */,
+				21EF6FFB281A7D1200B60288 /* TextAlert.swift */,
 				2174386D28191073007923AB /* CustomTab.swift */,
 				2174387328193658007923AB /* Style.swift */,
 				21222F3B2817CDB200BFCA6E /* Line.swift */,
@@ -209,6 +212,7 @@
 				21222F3A2817C24F00BFCA6E /* InnerRoundedRectangle.swift in Sources */,
 				21638D7D28196CA7001AA45A /* DecorateTicketView.swift in Sources */,
 				2174386E28191073007923AB /* CustomTab.swift in Sources */,
+				21EF6FFC281A7D1200B60288 /* TextAlert.swift in Sources */,
 				21EF6FF8281A6AFF00B60288 /* PlayerView.swift in Sources */,
 				21743870281926AC007923AB /* TicketListView.swift in Sources */,
 				21638D7B28194D99001AA45A /* RecordView.swift in Sources */,

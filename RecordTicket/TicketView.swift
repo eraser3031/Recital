@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SampleData {
-    static let tickets: [(title: LocalizedStringKey, date: Date, location: LocalizedStringKey, length: DateInterval)] = [
+    static let tickets: [(title: String, date: Date, location: LocalizedStringKey, length: DateInterval)] = [
         ("여수밤바다 파도소리", Date(), location: "Gongju", length: DateInterval(start: Date(), end: Date())),
         ("제민천 공원의 새소리", Date(), location: "Yeosu", length: DateInterval(start: Date(), end: Date())),
         ("카페에서", Date(), location: "Seoul", length: DateInterval(start: Date(), end: Date()))
@@ -65,7 +65,7 @@ struct TicketView: View {
     @State private var showDialog = false
     @State private var showPlayer = false
     
-    var title: LocalizedStringKey
+    var title: String
     var date: Date
     var location: LocalizedStringKey
     var length: DateInterval

@@ -23,7 +23,8 @@ struct SettingView: View {
                 personalDataSection
                     .padding(.horizontal, 20)
                 
-                appInfoSection                .padding(.horizontal, 20)
+                appInfoSection
+                    .padding(.horizontal, 20)
                 
                 
                 Spacer()

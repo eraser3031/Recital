@@ -32,7 +32,7 @@ struct DecorateTicketView: View {
                     
                     Spacer()
                     
-                    TicketView(title: LocalizedStringKey(title), date: Date(), location: "포항", length: DateInterval(start: Date(), end: Date()))
+                    TicketView(title: title, date: Date(), location: "포항", length: DateInterval(start: Date(), end: Date()))
                         .padding(.horizontal, 20)
                     
                     Spacer()
