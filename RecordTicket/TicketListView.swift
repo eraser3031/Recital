@@ -52,7 +52,7 @@ struct TicketListView: View {
             .padding(.top, 30).padding(.bottom, 10)
             
             List {
-                ForEach(0..<6) { index in
+                ForEach(0..<3) { index in
                     let sample = SampleData.tickets[index % 3]
                     TicketView(title: sample.title, date: sample.date, location: sample.location, length: sample.length
                                ,color: SampleData.colors[index % 3])

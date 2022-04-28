@@ -26,6 +26,9 @@
 		21743870281926AC007923AB /* TicketListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2174386F281926AC007923AB /* TicketListView.swift */; };
 		21743872281926B5007923AB /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21743871281926B5007923AB /* SettingView.swift */; };
 		2174387428193658007923AB /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2174387328193658007923AB /* Style.swift */; };
+		21EF6FF6281A5F8D00B60288 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EF6FF5281A5F8D00B60288 /* Color.swift */; };
+		21EF6FF8281A6AFF00B60288 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EF6FF7281A6AFF00B60288 /* PlayerView.swift */; };
+		21EF6FFA281A6BAD00B60288 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EF6FF9281A6BAD00B60288 /* RoundedCorner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		2174386F281926AC007923AB /* TicketListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketListView.swift; sourceTree = "<group>"; };
 		21743871281926B5007923AB /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		2174387328193658007923AB /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		21EF6FF5281A5F8D00B60288 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		21EF6FF7281A6AFF00B60288 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		21EF6FF9281A6BAD00B60288 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,7 @@
 				211C69D92816BA6D00869592 /* RecordTicketApp.swift */,
 				21638D7A28194D99001AA45A /* RecordView.swift */,
 				21638D7C28196CA7001AA45A /* DecorateTicketView.swift */,
+				21EF6FF7281A6AFF00B60288 /* PlayerView.swift */,
 				21638D7E281976E0001AA45A /* PhotoPicker.swift */,
 				211C69DB2816BA6D00869592 /* ContentView.swift */,
 				2174386F281926AC007923AB /* TicketListView.swift */,
@@ -96,8 +103,10 @@
 				2174387328193658007923AB /* Style.swift */,
 				21222F3B2817CDB200BFCA6E /* Line.swift */,
 				21222F392817C24F00BFCA6E /* InnerRoundedRectangle.swift */,
+				21EF6FF9281A6BAD00B60288 /* RoundedCorner.swift */,
 				211C69DD2816BA7000869592 /* Assets.xcassets */,
 				211C69DF2816BA7000869592 /* Preview Content */,
+				21EF6FF5281A5F8D00B60288 /* Color.swift */,
 			);
 			path = RecordTicket;
 			sourceTree = "<group>";
@@ -196,15 +205,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21EF6FFA281A6BAD00B60288 /* RoundedCorner.swift in Sources */,
 				21222F3A2817C24F00BFCA6E /* InnerRoundedRectangle.swift in Sources */,
 				21638D7D28196CA7001AA45A /* DecorateTicketView.swift in Sources */,
 				2174386E28191073007923AB /* CustomTab.swift in Sources */,
+				21EF6FF8281A6AFF00B60288 /* PlayerView.swift in Sources */,
 				21743870281926AC007923AB /* TicketListView.swift in Sources */,
 				21638D7B28194D99001AA45A /* RecordView.swift in Sources */,
 				21743872281926B5007923AB /* SettingView.swift in Sources */,
 				21222F382817C21900BFCA6E /* TicketView.swift in Sources */,
 				21222F412817D6B200BFCA6E /* Font.swift in Sources */,
 				211C69DC2816BA6D00869592 /* ContentView.swift in Sources */,
+				21EF6FF6281A5F8D00B60288 /* Color.swift in Sources */,
 				211C69DA2816BA6D00869592 /* RecordTicketApp.swift in Sources */,
 				21638D7F281976E0001AA45A /* PhotoPicker.swift in Sources */,
 				21222F3C2817CDB200BFCA6E /* Line.swift in Sources */,
@@ -265,7 +277,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = RecordTicket;
+				INFOPLIST_KEY_CFBundleDisplayName = "Re cital";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -321,7 +333,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = RecordTicket;
+				INFOPLIST_KEY_CFBundleDisplayName = "Re cital";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -345,7 +357,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RecordTicket/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = RecordTicket;
+				INFOPLIST_KEY_CFBundleDisplayName = "Re Cital";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -376,7 +388,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RecordTicket/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = RecordTicket;
+				INFOPLIST_KEY_CFBundleDisplayName = "Re Cital";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

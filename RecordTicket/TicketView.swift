@@ -21,6 +21,39 @@ struct SampleData {
     ]
 }
 
+enum TicketShape: String, Identifiable, CaseIterable {
+    case innerRounded
+    case rectangle
+    case rounded
+    case moreRounded
+    case edge
+    
+    var id: String {
+        self.rawValue
+    }
+    
+    @ViewBuilder
+    func makeShape(color: Color) -> some View {
+        switch self {
+        case .innerRounded:
+            InnerRoundedRectangle(cornerRadius: 12)
+                .fill(color)
+        case .rectangle:
+            Rectangle()
+                .fill(color)
+        case .rounded:
+            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                .fill(color)
+        case .moreRounded:
+            RoundedRectangle(cornerRadius: 24, style: .continuous)
+                .fill(color)
+        case .edge:
+            Rectangle()
+                .fill(color)
+        }
+    }
+}
+
 enum TicketCase: String {
     case innerRounded
     case rectangle
@@ -30,6 +63,7 @@ enum TicketCase: String {
 struct TicketView: View {
     
     @State private var showDialog = false
+    @State private var showPlayer = false
     
     var title: LocalizedStringKey
     var date: Date
@@ -45,6 +79,12 @@ struct TicketView: View {
         HStack(spacing: 0){
             mainPart
             subPart
+        }
+        .onTapGesture {
+            showPlayer = true
+        }
+        .fullScreenCover(isPresented: $showPlayer) {
+            PlayerView()
         }
         .aspectRatio(2.5, contentMode: .fit)
         .swipeActions(edge: .trailing) {
@@ -121,6 +161,7 @@ struct TicketView: View {
 struct TicketView_Previews: PreviewProvider {
     static var previews: some View {
         TicketView(title: "여수밤바다 파도소리", date: Date(), location: "Gongju", length: DateInterval(start: Date(), end: Date()) )
-            .previewInterfaceOrientation(.portrait)
+            .padding()
+            .previewLayout(.sizeThatFits)
     }
 }
