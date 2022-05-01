@@ -12,6 +12,7 @@ struct RecordView: View {
     @Environment(\.dismiss) var dismiss
     @State private var showDecorateTicketView = false
     @State private var showDialog = false
+    @State var ani = false
     
     var body: some View {
         NavigationView {
@@ -30,7 +31,7 @@ struct RecordView: View {
                 
                 VStack(spacing: 20) {
                     recordCircle
-                        .frame(width: 230, height: 230)
+                        .frame(width: 246, height: 246)
                     
                     Text("00:13:90")
                         .font(.system(size: 54, weight: .bold, design: .rounded))
@@ -80,6 +81,11 @@ struct RecordView: View {
                     EmptyView()
                 })
             )
+            .onAppear{
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                    ani = true
+                }
+            }
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
@@ -87,15 +93,19 @@ struct RecordView: View {
     private var recordCircle: some View {
         ZStack {
             Circle()
-                .fill(.red.opacity(0.08))
+                .fill(.red.opacity(ani ? 0.08 : 0.04))
+                .animation(.easeInOut(duration: 0.6).delay(0.4).repeatForever(), value: ani)
+                .padding(ani ? 0 : 12)
             
             Circle()
-                .fill(.red.opacity(0.1))
-                .padding(12)
+                .fill(.red.opacity(ani ? 0.1 : 0.05))
+                .animation(.easeInOut(duration: 0.8).delay(0.2).repeatForever(), value: ani)
+                .padding(ani ? 18 : 24)
             
             Circle()
-                .fill(.red.opacity(0.12))
-                .padding(24)
+                .fill(.red.opacity(ani ? 0.12 : 0.06))
+                .animation(.easeInOut(duration: 1).repeatForever(), value: ani)
+                .padding(36)
             
             VStack(spacing: 8) {
                 Image(systemName: "waveform")

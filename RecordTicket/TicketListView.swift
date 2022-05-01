@@ -13,7 +13,8 @@ enum AlignmentCase: String, CaseIterable {
 }
 
 struct TicketListView: View {
-    
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.date)]) private var records: FetchedResults<Record>
     @State private var alignmentCase: AlignmentCase = .recent
     
     init() {
@@ -27,6 +28,15 @@ struct TicketListView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 20)
                 .padding(.top, 40)
+                .onTapGesture {
+                    let record = Record(context: viewContext)
+                    record.title = "테스트1"
+                    record.location = "포항"
+                    record.date = Date()
+                    record.ticket = Ticket(context: viewContext)
+                    record.ticket?.colorName = TicketColor.yellow.name
+                    saveItems()
+                }
             
             HStack(spacing: 16) {
                 Text("최근 순")
@@ -52,15 +62,25 @@ struct TicketListView: View {
             .padding(.top, 30).padding(.bottom, 10)
             
             List {
-                ForEach(0..<3) { index in
-                    let sample = SampleData.tickets[index % 3]
-                    TicketView(title: sample.title, date: sample.date, location: sample.location, length: sample.length
-                               ,color: SampleData.colors[index % 3])
+                ForEach(records) { record in
+                    TicketView(record: record)
                     .padding(.vertical, 4)
                     .listRowSeparator(.hidden)
                 }
             }
             .listStyle(.plain)
+        }
+        
+    }
+    
+    private func saveItems() {
+        do {
+            try viewContext.save()
+        } catch {
+            // Replace this implementation with code to handle the error appropriately.
+            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
     }
 }

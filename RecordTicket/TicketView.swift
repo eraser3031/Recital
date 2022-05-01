@@ -60,18 +60,31 @@ enum TicketCase: String {
     case rounded
 }
 
+extension Ticket {
+    var color: Color {
+        get {
+            guard let ticketColor = TicketColor.allCases.first(where: { $0.name == colorName ?? "" }) else {
+                return TicketColor.pink.color
+            }
+            return ticketColor.color
+        }
+    }
+}
+
 struct TicketView: View {
+    
+    var record: Record
     
     @State private var showDialog = false
     @State private var showPlayer = false
     
-    var title: String
-    var date: Date
-    var location: LocalizedStringKey
-    var length: DateInterval
-    
-    var color: Color = .init(hex: 0xf7b0be)
-    var ticketCase: TicketCase = .innerRounded
+//    var title: String
+//    var date: Date
+//    var location: LocalizedStringKey
+//    var length: DateInterval
+//    
+//    var color: Color = .init(hex: 0xf7b0be)
+//    var ticketCase: TicketCase = .innerRounded
     var cornerRadius: CGFloat = 9
     
     var body: some View {
@@ -91,7 +104,7 @@ struct TicketView: View {
             Button(role: .destructive) {
                 showDialog = true
             } label: {
-                Label("Delete", systemImage: "trash")
+                Label("삭제", systemImage: "trash")
                     .padding()
                     .background(
                         RoundedRectangle(cornerRadius: 12, style: .continuous)
@@ -99,7 +112,7 @@ struct TicketView: View {
                     )
             }
             Button { print("hi2") } label: {
-                Label("Flag", systemImage: "flag")
+                Label("수정", systemImage: "pencil")
             }
         }
         .confirmationDialog("정말로 해당 녹음을 삭제하시겠어요?", isPresented: $showDialog, titleVisibility: .visible) {
@@ -115,7 +128,7 @@ struct TicketView: View {
     
     private var mainPart: some View {
         VStack(alignment: .leading) {
-            Text(title)
+            Text(record.title ?? "")
                 .font(.headline)
                 .scaledFont(name: CustomFont.gothicNeoHeavy, size: 17)
                 .lineLimit(1)
@@ -123,18 +136,18 @@ struct TicketView: View {
             Spacer()
             
             HStack(alignment: .bottom) {
-                Text(date, format: .dateTime)
+                Text(record.date ?? Date(), format: .dateTime)
                 
                 Spacer()
                 
-                Text(location)
+                Text(record.location ?? "")
             }
             .font(.subheadline)
         }
         .padding()
         .background(
             InnerRoundedRectangle(cornerRadius: cornerRadius)
-                .fill(color)
+                .fill(record.ticket?.color ?? TicketColor.pink.color)
         )
     }
     
@@ -146,22 +159,22 @@ struct TicketView: View {
             .frame(maxHeight: .infinity)
             .background(
                 InnerRoundedRectangle(cornerRadius: cornerRadius)
-                    .fill(color)
+                    .fill(record.ticket?.color ?? TicketColor.pink.color)
             )
             .overlay(
                 VLine()
                     .stroke(Color(.systemBackground), style: .init(lineWidth: 2, dash: [8, 8]))
-                    .frame(width: 1)
+                    .frame(width: 2)
                     .padding(.vertical, cornerRadius)
                 ,alignment: .leading
             )
     }
 }
 
-struct TicketView_Previews: PreviewProvider {
-    static var previews: some View {
-        TicketView(title: "여수밤바다 파도소리", date: Date(), location: "Gongju", length: DateInterval(start: Date(), end: Date()) )
-            .padding()
-            .previewLayout(.sizeThatFits)
-    }
-}
+//struct TicketView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TicketView(record: <#T##Record#>)
+//            .padding()
+//            .previewLayout(.sizeThatFits)
+//    }
+//}

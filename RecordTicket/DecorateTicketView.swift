@@ -32,8 +32,8 @@ struct DecorateTicketView: View {
                     
                     Spacer()
                     
-                    TicketView(title: title, date: Date(), location: "포항", length: DateInterval(start: Date(), end: Date()))
-                        .padding(.horizontal, 20)
+//                    TicketView(title: title, date: Date(), location: "포항", length: DateInterval(start: Date(), end: Date()))
+//                        .padding(.horizontal, 20)
                     
                     Spacer()
                     

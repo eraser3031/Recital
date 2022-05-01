@@ -92,11 +92,12 @@ extension CustomTabBarView {
         } label: {
             ZStack {
                 Circle()
+                    .fill(.thinMaterial)
                     .frame(width: 64, height: 64)
                 
                 Image(systemName: "waveform")
                     .font(.largeTitle)
-                    .foregroundColor(Color(.systemBackground))
+//                    .foregroundColor(Color(.systemBackground))
             }
         }
         .buttonStyle(TabBarButtonStyle())

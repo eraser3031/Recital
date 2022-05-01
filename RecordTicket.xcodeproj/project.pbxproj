@@ -19,6 +19,8 @@
 		21222F442817D8C500BFCA6E /* SpoqaHanSansNeo-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 21222F432817D8C000BFCA6E /* SpoqaHanSansNeo-Regular.otf */; };
 		21222F452817D8C500BFCA6E /* SpoqaHanSansNeo-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 21222F422817D8C000BFCA6E /* SpoqaHanSansNeo-Bold.otf */; };
 		21222F472817D96000BFCA6E /* Gilroy-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 21222F462817D96000BFCA6E /* Gilroy-ExtraBold.otf */; };
+		2138E4B5281BAF9D00B26CA9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2138E4B4281BAF9D00B26CA9 /* Date.swift */; };
+		2138E4B7281BB19500B26CA9 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2138E4B6281BB19500B26CA9 /* AudioManager.swift */; };
 		21638D7B28194D99001AA45A /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21638D7A28194D99001AA45A /* RecordView.swift */; };
 		21638D7D28196CA7001AA45A /* DecorateTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21638D7C28196CA7001AA45A /* DecorateTicketView.swift */; };
 		21638D7F281976E0001AA45A /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21638D7E281976E0001AA45A /* PhotoPicker.swift */; };
@@ -30,6 +32,9 @@
 		21EF6FF8281A6AFF00B60288 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EF6FF7281A6AFF00B60288 /* PlayerView.swift */; };
 		21EF6FFA281A6BAD00B60288 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EF6FF9281A6BAD00B60288 /* RoundedCorner.swift */; };
 		21EF6FFC281A7D1200B60288 /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EF6FFB281A7D1200B60288 /* TextAlert.swift */; };
+		21EF6FFE281A868500B60288 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EF6FFD281A868500B60288 /* Persistence.swift */; };
+		21EF7001281A86FA00B60288 /* RecitalModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21EF6FFF281A86FA00B60288 /* RecitalModel.xcdatamodeld */; };
+		21EF7003281A8A8C00B60288 /* EdgeRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EF7002281A8A8C00B60288 /* EdgeRectangle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +52,8 @@
 		21222F432817D8C000BFCA6E /* SpoqaHanSansNeo-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Regular.otf"; sourceTree = "<group>"; };
 		21222F462817D96000BFCA6E /* Gilroy-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-ExtraBold.otf"; sourceTree = "<group>"; };
 		21222F482817DA1800BFCA6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2138E4B4281BAF9D00B26CA9 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		2138E4B6281BB19500B26CA9 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		21638D7A28194D99001AA45A /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		21638D7C28196CA7001AA45A /* DecorateTicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecorateTicketView.swift; sourceTree = "<group>"; };
 		21638D7E281976E0001AA45A /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
@@ -58,6 +65,9 @@
 		21EF6FF7281A6AFF00B60288 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		21EF6FF9281A6BAD00B60288 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		21EF6FFB281A7D1200B60288 /* TextAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAlert.swift; sourceTree = "<group>"; };
+		21EF6FFD281A868500B60288 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		21EF7000281A86FA00B60288 /* RecitalModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecitalModel.xcdatamodel; sourceTree = "<group>"; };
+		21EF7002281A8A8C00B60288 /* EdgeRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeRectangle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				21222F482817DA1800BFCA6E /* Info.plist */,
+				21EF6FFF281A86FA00B60288 /* RecitalModel.xcdatamodeld */,
 				21222F3D2817D65600BFCA6E /* Fonts */,
 				211C69D92816BA6D00869592 /* RecordTicketApp.swift */,
 				21638D7A28194D99001AA45A /* RecordView.swift */,
@@ -98,7 +109,11 @@
 				21EF6FF7281A6AFF00B60288 /* PlayerView.swift */,
 				21638D7E281976E0001AA45A /* PhotoPicker.swift */,
 				211C69DB2816BA6D00869592 /* ContentView.swift */,
+				21EF6FFD281A868500B60288 /* Persistence.swift */,
+				21EF7002281A8A8C00B60288 /* EdgeRectangle.swift */,
 				2174386F281926AC007923AB /* TicketListView.swift */,
+				2138E4B4281BAF9D00B26CA9 /* Date.swift */,
+				2138E4B6281BB19500B26CA9 /* AudioManager.swift */,
 				21743871281926B5007923AB /* SettingView.swift */,
 				21222F372817C21900BFCA6E /* TicketView.swift */,
 				21EF6FFB281A7D1200B60288 /* TextAlert.swift */,
@@ -211,19 +226,24 @@
 				21EF6FFA281A6BAD00B60288 /* RoundedCorner.swift in Sources */,
 				21222F3A2817C24F00BFCA6E /* InnerRoundedRectangle.swift in Sources */,
 				21638D7D28196CA7001AA45A /* DecorateTicketView.swift in Sources */,
+				2138E4B5281BAF9D00B26CA9 /* Date.swift in Sources */,
 				2174386E28191073007923AB /* CustomTab.swift in Sources */,
+				21EF7003281A8A8C00B60288 /* EdgeRectangle.swift in Sources */,
 				21EF6FFC281A7D1200B60288 /* TextAlert.swift in Sources */,
 				21EF6FF8281A6AFF00B60288 /* PlayerView.swift in Sources */,
 				21743870281926AC007923AB /* TicketListView.swift in Sources */,
 				21638D7B28194D99001AA45A /* RecordView.swift in Sources */,
 				21743872281926B5007923AB /* SettingView.swift in Sources */,
+				21EF6FFE281A868500B60288 /* Persistence.swift in Sources */,
 				21222F382817C21900BFCA6E /* TicketView.swift in Sources */,
 				21222F412817D6B200BFCA6E /* Font.swift in Sources */,
 				211C69DC2816BA6D00869592 /* ContentView.swift in Sources */,
 				21EF6FF6281A5F8D00B60288 /* Color.swift in Sources */,
+				21EF7001281A86FA00B60288 /* RecitalModel.xcdatamodeld in Sources */,
 				211C69DA2816BA6D00869592 /* RecordTicketApp.swift in Sources */,
 				21638D7F281976E0001AA45A /* PhotoPicker.swift in Sources */,
 				21222F3C2817CDB200BFCA6E /* Line.swift in Sources */,
+				2138E4B7281BB19500B26CA9 /* AudioManager.swift in Sources */,
 				2174387428193658007923AB /* Style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +382,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RecordTicket/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Re Cital";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -393,6 +414,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RecordTicket/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Re Cital";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -433,6 +455,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		21EF6FFF281A86FA00B60288 /* RecitalModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				21EF7000281A86FA00B60288 /* RecitalModel.xcdatamodel */,
+			);
+			currentVersion = 21EF7000281A86FA00B60288 /* RecitalModel.xcdatamodel */;
+			path = RecitalModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 211C69CE2816BA6D00869592 /* Project object */;
 }

@@ -33,3 +33,8 @@ struct Line_Previews: PreviewProvider {
           .frame(height: 1)
     }
 }
+
+// Core Data
+// 뷰 연결
+// 주말 - 녹음 / 재생
+// 월 화 수 - 녹음 / 재생
