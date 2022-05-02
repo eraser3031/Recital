@@ -19,6 +19,8 @@
 		21222F442817D8C500BFCA6E /* SpoqaHanSansNeo-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 21222F432817D8C000BFCA6E /* SpoqaHanSansNeo-Regular.otf */; };
 		21222F452817D8C500BFCA6E /* SpoqaHanSansNeo-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 21222F422817D8C000BFCA6E /* SpoqaHanSansNeo-Bold.otf */; };
 		21222F472817D96000BFCA6E /* Gilroy-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 21222F462817D96000BFCA6E /* Gilroy-ExtraBold.otf */; };
+		21284E88281FA12500D52722 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21284E87281FA12500D52722 /* LocationManager.swift */; };
+		21284E8A281FA12D00D52722 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21284E89281FA12D00D52722 /* TimerManager.swift */; };
 		2138E4B5281BAF9D00B26CA9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2138E4B4281BAF9D00B26CA9 /* Date.swift */; };
 		2138E4B7281BB19500B26CA9 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2138E4B6281BB19500B26CA9 /* AudioManager.swift */; };
 		21638D7B28194D99001AA45A /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21638D7A28194D99001AA45A /* RecordView.swift */; };
@@ -52,6 +54,8 @@
 		21222F432817D8C000BFCA6E /* SpoqaHanSansNeo-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Regular.otf"; sourceTree = "<group>"; };
 		21222F462817D96000BFCA6E /* Gilroy-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-ExtraBold.otf"; sourceTree = "<group>"; };
 		21222F482817DA1800BFCA6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		21284E87281FA12500D52722 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		21284E89281FA12D00D52722 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		2138E4B4281BAF9D00B26CA9 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		2138E4B6281BB19500B26CA9 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		21638D7A28194D99001AA45A /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
@@ -102,29 +106,16 @@
 			children = (
 				21222F482817DA1800BFCA6E /* Info.plist */,
 				21EF6FFF281A86FA00B60288 /* RecitalModel.xcdatamodeld */,
-				21222F3D2817D65600BFCA6E /* Fonts */,
 				211C69D92816BA6D00869592 /* RecordTicketApp.swift */,
-				21638D7A28194D99001AA45A /* RecordView.swift */,
-				21638D7C28196CA7001AA45A /* DecorateTicketView.swift */,
-				21EF6FF7281A6AFF00B60288 /* PlayerView.swift */,
-				21638D7E281976E0001AA45A /* PhotoPicker.swift */,
-				211C69DB2816BA6D00869592 /* ContentView.swift */,
-				21EF6FFD281A868500B60288 /* Persistence.swift */,
-				21EF7002281A8A8C00B60288 /* EdgeRectangle.swift */,
-				2174386F281926AC007923AB /* TicketListView.swift */,
-				2138E4B4281BAF9D00B26CA9 /* Date.swift */,
-				2138E4B6281BB19500B26CA9 /* AudioManager.swift */,
-				21743871281926B5007923AB /* SettingView.swift */,
-				21222F372817C21900BFCA6E /* TicketView.swift */,
-				21EF6FFB281A7D1200B60288 /* TextAlert.swift */,
-				2174386D28191073007923AB /* CustomTab.swift */,
-				2174387328193658007923AB /* Style.swift */,
-				21222F3B2817CDB200BFCA6E /* Line.swift */,
-				21222F392817C24F00BFCA6E /* InnerRoundedRectangle.swift */,
-				21EF6FF9281A6BAD00B60288 /* RoundedCorner.swift */,
+				21284E83281FA06400D52722 /* View */,
+				21284E85281FA08800D52722 /* Data */,
+				21284E84281FA07700D52722 /* Components */,
+				21284E86281FA0DC00D52722 /* Service + Manager */,
+				21284E82281FA01F00D52722 /* Shape */,
+				21284E81281F9FF700D52722 /* Extension */,
+				21222F3D2817D65600BFCA6E /* Fonts */,
 				211C69DD2816BA7000869592 /* Assets.xcassets */,
 				211C69DF2816BA7000869592 /* Preview Content */,
-				21EF6FF5281A5F8D00B60288 /* Color.swift */,
 			);
 			path = RecordTicket;
 			sourceTree = "<group>";
@@ -140,13 +131,76 @@
 		21222F3D2817D65600BFCA6E /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				21222F402817D6B200BFCA6E /* Font.swift */,
 				21222F462817D96000BFCA6E /* Gilroy-ExtraBold.otf */,
 				21222F422817D8C000BFCA6E /* SpoqaHanSansNeo-Bold.otf */,
 				21222F432817D8C000BFCA6E /* SpoqaHanSansNeo-Regular.otf */,
 				21222F3E2817D68A00BFCA6E /* AppleSDGothicNeo.ttc */,
-				21222F402817D6B200BFCA6E /* Font.swift */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		21284E81281F9FF700D52722 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				21EF6FF5281A5F8D00B60288 /* Color.swift */,
+				2138E4B4281BAF9D00B26CA9 /* Date.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		21284E82281FA01F00D52722 /* Shape */ = {
+			isa = PBXGroup;
+			children = (
+				21EF7002281A8A8C00B60288 /* EdgeRectangle.swift */,
+				21222F392817C24F00BFCA6E /* InnerRoundedRectangle.swift */,
+				21EF6FF9281A6BAD00B60288 /* RoundedCorner.swift */,
+				21222F3B2817CDB200BFCA6E /* Line.swift */,
+				2174387328193658007923AB /* Style.swift */,
+			);
+			path = Shape;
+			sourceTree = "<group>";
+		};
+		21284E83281FA06400D52722 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				211C69DB2816BA6D00869592 /* ContentView.swift */,
+				2174386F281926AC007923AB /* TicketListView.swift */,
+				21638D7A28194D99001AA45A /* RecordView.swift */,
+				21743871281926B5007923AB /* SettingView.swift */,
+				21222F372817C21900BFCA6E /* TicketView.swift */,
+				21638D7C28196CA7001AA45A /* DecorateTicketView.swift */,
+				21EF6FF7281A6AFF00B60288 /* PlayerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		21284E84281FA07700D52722 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				21638D7E281976E0001AA45A /* PhotoPicker.swift */,
+				21EF6FFB281A7D1200B60288 /* TextAlert.swift */,
+				2174386D28191073007923AB /* CustomTab.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		21284E85281FA08800D52722 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				21EF6FFD281A868500B60288 /* Persistence.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		21284E86281FA0DC00D52722 /* Service + Manager */ = {
+			isa = PBXGroup;
+			children = (
+				2138E4B6281BB19500B26CA9 /* AudioManager.swift */,
+				21284E87281FA12500D52722 /* LocationManager.swift */,
+				21284E89281FA12D00D52722 /* TimerManager.swift */,
+			);
+			path = "Service + Manager";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,7 +284,9 @@
 				2174386E28191073007923AB /* CustomTab.swift in Sources */,
 				21EF7003281A8A8C00B60288 /* EdgeRectangle.swift in Sources */,
 				21EF6FFC281A7D1200B60288 /* TextAlert.swift in Sources */,
+				21284E88281FA12500D52722 /* LocationManager.swift in Sources */,
 				21EF6FF8281A6AFF00B60288 /* PlayerView.swift in Sources */,
+				21284E8A281FA12D00D52722 /* TimerManager.swift in Sources */,
 				21743870281926AC007923AB /* TicketListView.swift in Sources */,
 				21638D7B28194D99001AA45A /* RecordView.swift in Sources */,
 				21743872281926B5007923AB /* SettingView.swift in Sources */,
@@ -383,6 +439,7 @@
 				INFOPLIST_FILE = RecordTicket/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Re Cital";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -415,6 +472,7 @@
 				INFOPLIST_FILE = RecordTicket/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Re Cital";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
