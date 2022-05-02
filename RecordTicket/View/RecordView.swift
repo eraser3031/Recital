@@ -6,8 +6,15 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct RecordView: View {
+    
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @StateObject var rm = RecordManager()
+    @StateObject var tm = TimerManager()
+    @StateObject var lm = LocationManager()
     
     @Environment(\.dismiss) var dismiss
     @State private var showDecorateTicketView = false
@@ -18,11 +25,11 @@ struct RecordView: View {
         NavigationView {
             VStack {
                 VStack(spacing: 8) {
-                    Text("효자동")
+                    Text(lm.placemark?.subLocality ?? "위치정보 없음")
                         .font(.title.bold())
                         .padding(.top, 20)
                     
-                    Text("10:04 PM")
+                    Text(Date(), format: Date.FormatStyle(date: .omitted, time: .shortened))
                         .font(.headline)
                         .foregroundColor(.gray)
                 }
@@ -33,15 +40,32 @@ struct RecordView: View {
                     recordCircle
                         .frame(width: 246, height: 246)
                     
-                    Text("00:13:90")
+                    Text("00:00.00")
                         .font(.system(size: 54, weight: .bold, design: .rounded))
+                        .opacity(0)
+                        .overlay(alignment: .leading) {
+                            Text("\(tm.minutesString):\(tm.secondsString).\(tm.millisecondsString)")
+                                .font(.system(size: 54, weight: .bold, design: .rounded))
+                                .minimumScaleFactor(0.8)
+                        }
+                        .onAppear{ tm.start() }
+                        .onDisappear{ tm.stop() }
                 }
                 
                 Spacer()
                 
                 VStack {
                     Button(role: .destructive) {
+                        rm.stop()
+                        tm.stop()
                         showDecorateTicketView = true
+                        
+                        let newRecord = Record(context: viewContext)
+                        newRecord.id = UUID()
+                        newRecord.url = rm.recordURL
+                        newRecord.ticket?.colorName = TicketColor.mint.name
+                        save()
+                        
                     } label: {
                         Text("완료")
                             .font(.headline)
@@ -59,6 +83,7 @@ struct RecordView: View {
                     .buttonStyle(ModalBottomButtonStyle())
                     .confirmationDialog("정말로 녹음을 취소하시겠어요?", isPresented: $showDialog, titleVisibility: .visible) {
                         Button("네", role: .destructive) {
+                            rm.stop()
                             dismiss()
                         }
                         
@@ -81,7 +106,8 @@ struct RecordView: View {
                     EmptyView()
                 })
             )
-            .onAppear{
+            .onAppear {
+                rm.start()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
                     ani = true
                 }
@@ -115,6 +141,15 @@ struct RecordView: View {
                     .offset(x: 4)
             }
             .foregroundColor(.red)
+        }
+    }
+    
+    private func save() {
+        do {
+            try viewContext.save()
+        } catch {
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
     }
 }

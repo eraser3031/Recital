@@ -10,8 +10,19 @@ import SwiftUI
 struct PlayerView: View {
     
     @Environment(\.dismiss) var dismiss
+    
+    @StateObject var am = AudioManager()
+    
+    var record: Record
+    @State private var value: Double = 0.0
+    @State private var isEditing = false
+    
     @State private var ticketColor = TicketColor.pink
     @State private var image = Image("TestImage")
+    
+    let timer = Timer
+        .publish(every: 0.1, on: .main, in: .common)
+        .autoconnect()
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -30,9 +41,18 @@ struct PlayerView: View {
                     
                 
                 VStack(spacing: 24) {
-                    HLine()
-                        .stroke(TicketColor.pink.color, lineWidth: 80)
-                        .frame(height: 80)
+//                    HLine()
+//                        .stroke(TicketColor.pink.color, lineWidth: 80)
+//                        .frame(height: 80)
+                    
+                    Slider(value: $value, in: 0...(am.player?.duration ?? 0)) { editing in
+                        isEditing = editing
+                        if !editing {
+                            am.player?.currentTime = value
+                        }
+                    }
+                    .tint(.white)
+                    .animation(.linear, value: value)
                     
                     Text("-03:23")
                         .font(.subheadline.bold())
@@ -40,7 +60,7 @@ struct PlayerView: View {
                     
                     HStack(spacing: 60) {
                         Button {
-                            print("back 15")
+                            am.player?.currentTime -= 15
                         } label: {
                             Image(systemName: "gobackward.15")
                                 .font(.title.weight(.semibold))
@@ -48,15 +68,15 @@ struct PlayerView: View {
                         .buttonStyle(playerButtonStyle())
                         
                         Button {
-                            print("play or pause")
+                            am.playPause()
                         } label: {
-                            Image(systemName: "pause.fill")
+                            Image(systemName: (am.player?.isPlaying ?? false) ? "pause.fill" : "play.fill")
                                 .font(.system(size: 46, weight: .bold, design: .default))
                         }
                         .buttonStyle(playerButtonStyle())
                         
                         Button {
-                            print("go 15")
+                            am.player?.currentTime += 15
                         } label: {
                             Image(systemName: "goforward.15")
                                 .font(.title.weight(.semibold))
@@ -94,14 +114,21 @@ struct PlayerView: View {
                 Spacer()
             }
         }
+        .onAppear{
+            am.startPlayer(url: record.url!)
+        }
+        .onReceive(timer) { _ in
+            guard let player = am.player, !isEditing else { return }
+            value = player.currentTime
+        }
     }
 }
 
-struct PlayerView_Previews: PreviewProvider {
-    static var previews: some View {
-        PlayerView()
-    }
-}
+//struct PlayerView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PlayerView()
+//    }
+//}
 
 struct playerButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {

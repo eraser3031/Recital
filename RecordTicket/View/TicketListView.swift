@@ -31,11 +31,12 @@ struct TicketListView: View {
                 .onTapGesture {
                     let record = Record(context: viewContext)
                     record.title = "테스트1"
+                    record.id = UUID()
                     record.location = "포항"
                     record.date = Date()
                     record.ticket = Ticket(context: viewContext)
                     record.ticket?.colorName = TicketColor.yellow.name
-                    saveItems()
+                    save()
                 }
             
             HStack(spacing: 16) {
@@ -73,12 +74,10 @@ struct TicketListView: View {
         
     }
     
-    private func saveItems() {
+    private func save() {
         do {
             try viewContext.save()
         } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             let nsError = error as NSError
             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }

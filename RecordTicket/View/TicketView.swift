@@ -73,18 +73,13 @@ extension Ticket {
 
 struct TicketView: View {
     
+    @Environment(\.managedObjectContext) private var viewContext
+    
     var record: Record
     
     @State private var showDialog = false
     @State private var showPlayer = false
     
-//    var title: String
-//    var date: Date
-//    var location: LocalizedStringKey
-//    var length: DateInterval
-//    
-//    var color: Color = .init(hex: 0xf7b0be)
-//    var ticketCase: TicketCase = .innerRounded
     var cornerRadius: CGFloat = 9
     
     var body: some View {
@@ -97,7 +92,7 @@ struct TicketView: View {
             showPlayer = true
         }
         .fullScreenCover(isPresented: $showPlayer) {
-            PlayerView()
+            PlayerView(record: record)
         }
         .aspectRatio(2.5, contentMode: .fit)
         .swipeActions(edge: .trailing) {
@@ -117,7 +112,10 @@ struct TicketView: View {
         }
         .confirmationDialog("정말로 해당 녹음을 삭제하시겠어요?", isPresented: $showDialog, titleVisibility: .visible) {
             Button("네", role: .destructive) {
-                print("Delete")
+                withAnimation(.spring()) {                
+                    viewContext.delete(record)
+                    save()
+                }
             }
             
             Button("아니요", role: .cancel) {
@@ -169,6 +167,16 @@ struct TicketView: View {
                 ,alignment: .leading
             )
     }
+    
+    private func save() {
+        do {
+            try viewContext.save()
+        } catch {
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        }
+    }
+
 }
 
 //struct TicketView_Previews: PreviewProvider {

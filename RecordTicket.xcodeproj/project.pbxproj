@@ -21,6 +21,7 @@
 		21222F472817D96000BFCA6E /* Gilroy-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 21222F462817D96000BFCA6E /* Gilroy-ExtraBold.otf */; };
 		21284E88281FA12500D52722 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21284E87281FA12500D52722 /* LocationManager.swift */; };
 		21284E8A281FA12D00D52722 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21284E89281FA12D00D52722 /* TimerManager.swift */; };
+		21284E8E281FAFB400D52722 /* RecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21284E8D281FAFB400D52722 /* RecordManager.swift */; };
 		2138E4B5281BAF9D00B26CA9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2138E4B4281BAF9D00B26CA9 /* Date.swift */; };
 		2138E4B7281BB19500B26CA9 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2138E4B6281BB19500B26CA9 /* AudioManager.swift */; };
 		21638D7B28194D99001AA45A /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21638D7A28194D99001AA45A /* RecordView.swift */; };
@@ -56,6 +57,7 @@
 		21222F482817DA1800BFCA6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		21284E87281FA12500D52722 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		21284E89281FA12D00D52722 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
+		21284E8D281FAFB400D52722 /* RecordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManager.swift; sourceTree = "<group>"; };
 		2138E4B4281BAF9D00B26CA9 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		2138E4B6281BB19500B26CA9 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		21638D7A28194D99001AA45A /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				2138E4B6281BB19500B26CA9 /* AudioManager.swift */,
+				21284E8D281FAFB400D52722 /* RecordManager.swift */,
 				21284E87281FA12500D52722 /* LocationManager.swift */,
 				21284E89281FA12D00D52722 /* TimerManager.swift */,
 			);
@@ -300,6 +303,7 @@
 				21638D7F281976E0001AA45A /* PhotoPicker.swift in Sources */,
 				21222F3C2817CDB200BFCA6E /* Line.swift in Sources */,
 				2138E4B7281BB19500B26CA9 /* AudioManager.swift in Sources */,
+				21284E8E281FAFB400D52722 /* RecordManager.swift in Sources */,
 				2174387428193658007923AB /* Style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
