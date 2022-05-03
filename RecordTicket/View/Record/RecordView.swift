@@ -10,8 +10,8 @@ import AVKit
 
 struct RecordView: View {
     
-    @Environment(\.managedObjectContext) private var viewContext
-     
+    @StateObject var vm = RecordViewModel()
+    
     @StateObject var rm = RecordManager()
     @StateObject var tm = TimerManager()
     @StateObject var lm = LocationManager()
@@ -61,26 +61,14 @@ struct RecordView: View {
                         rm.stop()
                         tm.stop()
                         showDecorateTicketView = true
-                        
-                        let newRecord = Record(context: viewContext)
-                        
-                        let newTicket = Ticket(context: viewContext)
-                        newTicket.shapeName = TicketShape.rectangle.name
-                        newRecord.ticket = newTicket
-                        newRecord.id = UUID()
-                        newRecord.fileName = rm.fileName
-                        save()
-                        
-                        record = newRecord
-                        
+                        record = vm.addRecord(fileName: rm.fileName ?? "",
+                                              length: "\(tm.minutesString):\(tm.secondsString)",
+                                              location: lm.placemark?.subLocality ?? "위치정보 없음")
                     } label: {
                         Text("완료")
                             .font(.headline)
                     }
                     .buttonStyle(ModalBottomButtonStyle())
-//                    .fullScreenCover(isPresented: $showDecorateTicketView) {
-//                        DecorateTicketView()
-//                    }
                     
                     Button(role: .cancel) {
                         showDialog = true
@@ -157,12 +145,6 @@ struct RecordView: View {
     }
     
     private func save() {
-        do {
-            try viewContext.save()
-        } catch {
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-        }
     }
 }
 

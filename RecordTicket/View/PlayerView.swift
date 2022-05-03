@@ -17,7 +17,6 @@ struct PlayerView: View {
     @State private var value: Double = 0.0
     @State private var isEditing = false
     
-    @State private var ticketColor = TicketColor.pink
     @State private var image = Image("TestImage")
     
     let timer = Timer
@@ -26,7 +25,7 @@ struct PlayerView: View {
     
     var body: some View {
         ZStack(alignment: .top) {
-            ticketColor.color
+            record.ticket?.color
                 .ignoresSafeArea()
             
             VStack(spacing: 30) {

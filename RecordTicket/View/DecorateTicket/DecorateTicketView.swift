@@ -10,25 +10,33 @@ import PhotosUI
 
 struct DecorateTicketView: View {
     
-    @Environment(\.managedObjectContext) private var viewContext
+    @StateObject var vm = DecorateTicketViewModel()
+    @ObservedObject var record: Record
     
-    @State private var decoCase: DecoCase = .shape
+    @State private var decoCase: DecoCase = .title
     
-    @State private var title: String = ""
-    @State private var color: TicketColor = .pink
+    @State private var title: String
+    @State private var color: TicketColor
     @State private var images: [UIImage] = []
-    @State private var shape: TicketShape = .innerRounded
-    
-    var record: Record
+    @State private var shape: TicketShape
     
     @State private var showPhotoPicker = false
     
-    let dismiss: (() -> Void)?
+    let dismiss: () -> Void
+    
+    init(record: Record, dismiss: @escaping () -> Void){
+        self.record = record
+        self.dismiss = dismiss
+        self.title = record.title ?? ""
+        self.color = record.ticket?.ticketColor ?? .pink
+        self.shape = record.ticket?.ticketShape ?? .rectangle
+    }
     
     private let colorColumns = [GridItem](repeating: GridItem(spacing: 20), count: 4)
     private let shapeColumns = [GridItem](repeating: GridItem(spacing: 30), count: 3)
     
     var body: some View {
+        
         NavigationView {
             ZStack {
                 Color(.systemGray6)
@@ -38,8 +46,14 @@ struct DecorateTicketView: View {
                     
                     Spacer()
                     
-//                    TicketView(title: title, date: Date(), location: "포항", length: DateInterval(start: Date(), end: Date()))
-//                        .padding(.horizontal, 20)
+                    PreviewTicketView(title: $title,
+                                      color: $color,
+                                      image: $images,
+                                      shape: $shape,
+                                      date: record.date ?? Date(),
+                                      location: record.location ?? "",
+                                      length: record.length ?? "")
+                    .padding(.horizontal, 20)
                     
                     Spacer()
                     
@@ -73,9 +87,7 @@ struct DecorateTicketView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(role: .cancel) {
-                        if let dismiss = dismiss {
-                            dismiss()
-                        }
+                        dismiss()
                     } label: {
                         Text("취소")
                             .foregroundColor(.red)
@@ -85,10 +97,8 @@ struct DecorateTicketView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(role: .destructive) {
-                        updateRecord()
-                        if let dismiss = dismiss {
-                            dismiss()
-                        }
+                        vm.updateRecord(record: record, title: title, color: color, shape: shape)
+                        dismiss()
                     } label: {
                         Text("완료")
                             .bold()
@@ -168,7 +178,7 @@ struct DecorateTicketView: View {
         LazyVGrid(columns: shapeColumns, spacing: 30) {
             ForEach(TicketShape.allCases) { ticketShape in
                 ticketShape
-                    .makeShape(color: ticketShape == shape ? color.color : Color(.systemGray6))
+                    .makeShape(color: shape == ticketShape ? color.color : Color(.systemGray6))
                     .frame(width: 64, height: 64)
                     .onTapGesture {
                         withAnimation(.spring()) {
@@ -177,22 +187,6 @@ struct DecorateTicketView: View {
                     }
             }
         }
-    }
-    
-    private func save() {
-        do {
-            try viewContext.save()
-        } catch {
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-        }
-    }
-    
-    private func updateRecord() {
-        record.title = title
-        record.ticket?.colorName = color.name
-        record.ticket?.shapeName = shape.name
-        save()
     }
 }
 

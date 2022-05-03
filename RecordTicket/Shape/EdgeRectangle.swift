@@ -16,13 +16,13 @@ struct EdgeRectangle: Shape {
         path.move(to: CGPoint(x: 0, y: 0))
         path.move(to: CGPoint(x: cornerRadius, y: 0))
         path.addLine(to: CGPoint(x: rect.width - cornerRadius, y: 0))
-        path.addQuadCurve(to: CGPoint(x: rect.width, y: cornerRadius), control: CGPoint(x: rect.width - cornerRadius, y: cornerRadius))
+        path.addLine(to: CGPoint(x: rect.width, y: cornerRadius))
         path.addLine(to: CGPoint(x: rect.width, y: rect.height - cornerRadius))
-        path.addQuadCurve(to: CGPoint(x: rect.width - cornerRadius, y: rect.height), control: CGPoint(x: rect.width - cornerRadius, y: rect.height - cornerRadius))
+        path.addLine(to: CGPoint(x: rect.width - cornerRadius, y: rect.height))
         path.addLine(to: CGPoint(x: cornerRadius, y: rect.height))
-        path.addQuadCurve(to: CGPoint(x: 0, y: rect.height - cornerRadius), control: CGPoint(x: cornerRadius, y: rect.height - cornerRadius))
+        path.addLine(to: CGPoint(x: 0, y: rect.height - cornerRadius))
         path.addLine(to: CGPoint(x: 0, y: cornerRadius))
-        path.addQuadCurve(to: CGPoint(x: cornerRadius, y: 0), control: CGPoint(x: cornerRadius, y: cornerRadius))
+        path.addLine(to: CGPoint(x: cornerRadius, y: 0))
         return path
     }
 }

@@ -52,7 +52,7 @@ enum TicketShape: String, Identifiable, CaseIterable {
             RoundedRectangle(cornerRadius: 24, style: .continuous)
                 .fill(color)
         case .edge:
-            Rectangle()
+            EdgeRectangle()
                 .fill(color)
         }
     }
@@ -65,27 +65,39 @@ enum TicketCase: String {
 }
 
 extension Ticket {
+    
+    var ticketShape: TicketShape {
+        guard let ticketShape = TicketShape.allCases.first(where: { $0.name == shapeName ?? "" }) else {
+            return TicketShape.rectangle
+        }
+        return ticketShape
+    } 
+    
     var color: Color {
+        ticketColor.color
+    }
+    
+    var ticketColor: TicketColor {
         get {
             guard let ticketColor = TicketColor.allCases.first(where: { $0.name == colorName ?? "" }) else {
-                return TicketColor.pink.color
+                return TicketColor.pink
             }
-            return ticketColor.color
+            return ticketColor
         }
     }
 }
 
 struct TicketView: View {
     
-    @Environment(\.managedObjectContext) private var viewContext
+//    @Environment(\.managedObjectContext) private var viewContext
     
-    var record: Record
+    @ObservedObject var record: Record
     
     @State private var showDialog = false
     @State private var showDecorate = false
     @State private var showPlayer = false
     
-    var cornerRadius: CGFloat = 9
+    var cornerRadius: CGFloat = 8
     
     var body: some View {
         
@@ -100,38 +112,6 @@ struct TicketView: View {
             PlayerView(record: record)
         }
         .aspectRatio(2.5, contentMode: .fit)
-        .swipeActions(edge: .trailing) {
-            Button(role: .destructive) {
-                showDialog = true
-            } label: {
-                Label("삭제", systemImage: "trash")
-                    .padding()
-                    .background(
-                        RoundedRectangle(cornerRadius: 12, style: .continuous)
-                            .fill(.gray)
-                    )
-            }
-            Button { showDecorate = true } label: {
-                Label("수정", systemImage: "pencil")
-            }
-        }
-        .confirmationDialog("정말로 해당 녹음을 삭제하시겠어요?", isPresented: $showDialog, titleVisibility: .visible) {
-            Button("네", role: .destructive) {
-                withAnimation(.spring()) {                
-                    viewContext.delete(record)
-                    save()
-                }
-            }
-            
-            Button("아니요", role: .cancel) {
-                showDialog = false
-            }
-        }
-        .fullScreenCover(isPresented: $showDecorate) {
-            DecorateTicketView(record: record) {
-                showDecorate = false
-            }
-        }
     }
     
     private var mainPart: some View {
@@ -157,8 +137,8 @@ struct TicketView: View {
         }
         .padding()
         .background(
-            InnerRoundedRectangle(cornerRadius: cornerRadius)
-                .fill(record.ticket?.color ?? Color(.systemGray6))
+            record.ticket?.ticketShape
+                .makeShape(color: record.ticket?.color ?? Color(.systemGray6))
         )
     }
     
@@ -169,8 +149,8 @@ struct TicketView: View {
             .padding()
             .frame(maxHeight: .infinity)
             .background(
-                InnerRoundedRectangle(cornerRadius: cornerRadius)
-                    .fill(record.ticket?.color ?? Color(.systemGray6))
+                record.ticket?.ticketShape
+                    .makeShape(color: record.ticket?.color ?? Color(.systemGray6))
             )
             .overlay(
                 VLine()
@@ -180,17 +160,9 @@ struct TicketView: View {
                 ,alignment: .leading
             )
     }
-    
-    private func save() {
-        do {
-            try viewContext.save()
-        } catch {
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-        }
-    }
-
 }
+
+
 
 //struct TicketView_Previews: PreviewProvider {
 //    static var previews: some View {

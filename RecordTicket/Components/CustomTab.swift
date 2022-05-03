@@ -25,6 +25,8 @@ struct CustomTabBarContainerView<Content: View>: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             content
+        }
+        .safeAreaInset(edge: .bottom) {
             CustomTabBarView(tabs: tabs, action: action, selection: $selection)
         }
         .onPreferenceChange(TabBarItemsPreferenceKey.self) { value in
@@ -81,8 +83,10 @@ extension CustomTabBarView {
             ,alignment: .top
         )
         .overlay{
-            recordButton
-                .offset(y: -32)
+            if selection == .tickets {
+                recordButton
+                    .offset(y: -32)
+            }
         }
     }
     
@@ -101,12 +105,11 @@ extension CustomTabBarView {
             }
         }
         .buttonStyle(TabBarButtonStyle())
+        .animation(.none, value: selection)
     }
     
     func switchToTab(tab: TabBarItem) {
-        withAnimation(.easeInOut) {
-            selection = tab
-        }
+        selection = tab
     }
 }
 

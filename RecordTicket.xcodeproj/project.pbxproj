@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21059BB028210F5C0056CA6E /* TicketListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21059BAF28210F5C0056CA6E /* TicketListViewModel.swift */; };
+		21059BB228210FF40056CA6E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21059BB128210FF40056CA6E /* CoreDataManager.swift */; };
+		21059BB5282112130056CA6E /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21059BB4282112130056CA6E /* RecordViewModel.swift */; };
+		21059BB82821173F0056CA6E /* DecorateTicketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21059BB72821173F0056CA6E /* DecorateTicketViewModel.swift */; };
+		21059BBB28212CB20056CA6E /* PreviewTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21059BBA28212CB20056CA6E /* PreviewTicketView.swift */; };
 		211C69DA2816BA6D00869592 /* RecordTicketApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211C69D92816BA6D00869592 /* RecordTicketApp.swift */; };
 		211C69DC2816BA6D00869592 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211C69DB2816BA6D00869592 /* ContentView.swift */; };
 		211C69DE2816BA7000869592 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 211C69DD2816BA7000869592 /* Assets.xcassets */; };
@@ -41,6 +46,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21059BAF28210F5C0056CA6E /* TicketListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketListViewModel.swift; sourceTree = "<group>"; };
+		21059BB128210FF40056CA6E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		21059BB4282112130056CA6E /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
+		21059BB72821173F0056CA6E /* DecorateTicketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecorateTicketViewModel.swift; sourceTree = "<group>"; };
+		21059BBA28212CB20056CA6E /* PreviewTicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewTicketView.swift; sourceTree = "<group>"; };
 		211C69D62816BA6D00869592 /* RecordTicket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecordTicket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		211C69D92816BA6D00869592 /* RecordTicketApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTicketApp.swift; sourceTree = "<group>"; };
 		211C69DB2816BA6D00869592 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -87,6 +97,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21059BAE28210F4C0056CA6E /* TicketList */ = {
+			isa = PBXGroup;
+			children = (
+				2174386F281926AC007923AB /* TicketListView.swift */,
+				21059BAF28210F5C0056CA6E /* TicketListViewModel.swift */,
+			);
+			path = TicketList;
+			sourceTree = "<group>";
+		};
+		21059BB3282111F40056CA6E /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				21638D7A28194D99001AA45A /* RecordView.swift */,
+				21059BB4282112130056CA6E /* RecordViewModel.swift */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		21059BB62821172C0056CA6E /* DecorateTicket */ = {
+			isa = PBXGroup;
+			children = (
+				21638D7C28196CA7001AA45A /* DecorateTicketView.swift */,
+				21059BB72821173F0056CA6E /* DecorateTicketViewModel.swift */,
+			);
+			path = DecorateTicket;
+			sourceTree = "<group>";
+		};
+		21059BB928212C9E0056CA6E /* Ticket */ = {
+			isa = PBXGroup;
+			children = (
+				21222F372817C21900BFCA6E /* TicketView.swift */,
+				21059BBA28212CB20056CA6E /* PreviewTicketView.swift */,
+			);
+			path = Ticket;
+			sourceTree = "<group>";
+		};
 		211C69CD2816BA6D00869592 = {
 			isa = PBXGroup;
 			children = (
@@ -167,11 +213,11 @@
 			isa = PBXGroup;
 			children = (
 				211C69DB2816BA6D00869592 /* ContentView.swift */,
-				2174386F281926AC007923AB /* TicketListView.swift */,
-				21638D7A28194D99001AA45A /* RecordView.swift */,
+				21059BAE28210F4C0056CA6E /* TicketList */,
+				21059BB3282111F40056CA6E /* Record */,
 				21743871281926B5007923AB /* SettingView.swift */,
-				21222F372817C21900BFCA6E /* TicketView.swift */,
-				21638D7C28196CA7001AA45A /* DecorateTicketView.swift */,
+				21059BB928212C9E0056CA6E /* Ticket */,
+				21059BB62821172C0056CA6E /* DecorateTicket */,
 				21EF6FF7281A6AFF00B60288 /* PlayerView.swift */,
 			);
 			path = View;
@@ -190,6 +236,7 @@
 		21284E85281FA08800D52722 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				21059BB128210FF40056CA6E /* CoreDataManager.swift */,
 				21EF6FFD281A868500B60288 /* Persistence.swift */,
 			);
 			path = Data;
@@ -286,14 +333,18 @@
 				2138E4B5281BAF9D00B26CA9 /* Date.swift in Sources */,
 				2174386E28191073007923AB /* CustomTab.swift in Sources */,
 				21EF7003281A8A8C00B60288 /* EdgeRectangle.swift in Sources */,
+				21059BB228210FF40056CA6E /* CoreDataManager.swift in Sources */,
 				21EF6FFC281A7D1200B60288 /* TextAlert.swift in Sources */,
 				21284E88281FA12500D52722 /* LocationManager.swift in Sources */,
 				21EF6FF8281A6AFF00B60288 /* PlayerView.swift in Sources */,
 				21284E8A281FA12D00D52722 /* TimerManager.swift in Sources */,
+				21059BBB28212CB20056CA6E /* PreviewTicketView.swift in Sources */,
 				21743870281926AC007923AB /* TicketListView.swift in Sources */,
 				21638D7B28194D99001AA45A /* RecordView.swift in Sources */,
+				21059BB82821173F0056CA6E /* DecorateTicketViewModel.swift in Sources */,
 				21743872281926B5007923AB /* SettingView.swift in Sources */,
 				21EF6FFE281A868500B60288 /* Persistence.swift in Sources */,
+				21059BB5282112130056CA6E /* RecordViewModel.swift in Sources */,
 				21222F382817C21900BFCA6E /* TicketView.swift in Sources */,
 				21222F412817D6B200BFCA6E /* Font.swift in Sources */,
 				211C69DC2816BA6D00869592 /* ContentView.swift in Sources */,
@@ -302,6 +353,7 @@
 				211C69DA2816BA6D00869592 /* RecordTicketApp.swift in Sources */,
 				21638D7F281976E0001AA45A /* PhotoPicker.swift in Sources */,
 				21222F3C2817CDB200BFCA6E /* Line.swift in Sources */,
+				21059BB028210F5C0056CA6E /* TicketListViewModel.swift in Sources */,
 				2138E4B7281BB19500B26CA9 /* AudioManager.swift in Sources */,
 				21284E8E281FAFB400D52722 /* RecordManager.swift in Sources */,
 				2174387428193658007923AB /* Style.swift in Sources */,

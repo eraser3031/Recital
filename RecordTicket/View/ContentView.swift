@@ -14,14 +14,11 @@ struct ContentView: View {
     
     var body: some View {
         CustomTabBarContainerView(selection: $tabSelection, action: {showRecordView = true}) {
-            TicketListView()
+            TicketListView(showRecordView: $showRecordView)
                 .tabBarItem(tab: .tickets, selection: $tabSelection)
             
             SettingView()
                 .tabBarItem(tab: .settings, selection: $tabSelection)
-        }
-        .fullScreenCover(isPresented: $showRecordView) {
-            RecordView()
         }
     }
 }
