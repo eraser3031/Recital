@@ -11,7 +11,7 @@ import AVKit
 struct RecordView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
-    
+     
     @StateObject var rm = RecordManager()
     @StateObject var tm = TimerManager()
     @StateObject var lm = LocationManager()
@@ -20,6 +20,8 @@ struct RecordView: View {
     @State private var showDecorateTicketView = false
     @State private var showDialog = false
     @State var ani = false
+    
+    @State var record: Record?
     
     var body: some View {
         NavigationView {
@@ -61,10 +63,15 @@ struct RecordView: View {
                         showDecorateTicketView = true
                         
                         let newRecord = Record(context: viewContext)
+                        
+                        let newTicket = Ticket(context: viewContext)
+                        newTicket.shapeName = TicketShape.rectangle.name
+                        newRecord.ticket = newTicket
                         newRecord.id = UUID()
-                        newRecord.url = rm.recordURL
-                        newRecord.ticket?.colorName = TicketColor.mint.name
+                        newRecord.fileName = rm.fileName
                         save()
+                        
+                        record = newRecord
                         
                     } label: {
                         Text("완료")
@@ -97,11 +104,16 @@ struct RecordView: View {
             .navigationBarHidden(true)
             .background(
                 NavigationLink(isActive: $showDecorateTicketView, destination: {
-                    DecorateTicketView() {
-                        dismiss()
+                    if let record = record {
+                        DecorateTicketView(record: record) {
+                            dismiss()
+                        }
+                        .navigationBarHidden(true)
+                        .navigationBarBackButtonHidden(true)
+                    } else {
+                        EmptyView()
                     }
-                    .navigationBarHidden(true)
-                    .navigationBarBackButtonHidden(true)
+                    
                 }, label: {
                     EmptyView()
                 })

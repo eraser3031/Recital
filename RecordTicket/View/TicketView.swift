@@ -32,6 +32,10 @@ enum TicketShape: String, Identifiable, CaseIterable {
         self.rawValue
     }
     
+    var name: String {
+        self.rawValue
+    }
+    
     @ViewBuilder
     func makeShape(color: Color) -> some View {
         switch self {
@@ -78,6 +82,7 @@ struct TicketView: View {
     var record: Record
     
     @State private var showDialog = false
+    @State private var showDecorate = false
     @State private var showPlayer = false
     
     var cornerRadius: CGFloat = 9
@@ -106,7 +111,7 @@ struct TicketView: View {
                             .fill(.gray)
                     )
             }
-            Button { print("hi2") } label: {
+            Button { showDecorate = true } label: {
                 Label("수정", systemImage: "pencil")
             }
         }
@@ -122,42 +127,50 @@ struct TicketView: View {
                 showDialog = false
             }
         }
+        .fullScreenCover(isPresented: $showDecorate) {
+            DecorateTicketView(record: record) {
+                showDecorate = false
+            }
+        }
     }
     
     private var mainPart: some View {
         VStack(alignment: .leading) {
             Text(record.title ?? "")
                 .font(.headline)
-                .scaledFont(name: CustomFont.gothicNeoHeavy, size: 17)
+//                .scaledFont(name: CustomFont.gothicNeoHeavy, size: 17)
                 .lineLimit(1)
             
             Spacer()
             
             HStack(alignment: .bottom) {
-                Text(record.date ?? Date(), format: .dateTime)
-                
+                VStack(alignment: .leading) {
+                    Text(record.date ?? Date(), format: Date.FormatStyle(date: .long, time: .omitted) )
+                    Text(record.date ?? Date(), format: Date.FormatStyle(date: .omitted, time: .shortened) )
+                }
+                     
                 Spacer()
                 
-                Text(record.location ?? "")
+                Text(record.location ?? "위치정보 없음")
             }
             .font(.subheadline)
         }
         .padding()
         .background(
             InnerRoundedRectangle(cornerRadius: cornerRadius)
-                .fill(record.ticket?.color ?? TicketColor.pink.color)
+                .fill(record.ticket?.color ?? Color(.systemGray6))
         )
     }
     
     private var subPart: some View {
-        Text("10:23")
+        Text(record.length ?? "00:00")
             .fontWeight(.heavy)
             .rotationEffect(Angle(degrees: -90))
             .padding()
             .frame(maxHeight: .infinity)
             .background(
                 InnerRoundedRectangle(cornerRadius: cornerRadius)
-                    .fill(record.ticket?.color ?? TicketColor.pink.color)
+                    .fill(record.ticket?.color ?? Color(.systemGray6))
             )
             .overlay(
                 VLine()

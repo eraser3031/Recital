@@ -10,13 +10,19 @@ import PhotosUI
 
 struct DecorateTicketView: View {
     
-//    @Environment(\.dismiss) var dismiss
+    @Environment(\.managedObjectContext) private var viewContext
+    
     @State private var decoCase: DecoCase = .shape
+    
     @State private var title: String = ""
+    @State private var color: TicketColor = .pink
     @State private var images: [UIImage] = []
-    @State private var selectedColor: TicketColor = .pink
-    @State private var selectedShape: TicketShape = .innerRounded
+    @State private var shape: TicketShape = .innerRounded
+    
+    var record: Record
+    
     @State private var showPhotoPicker = false
+    
     let dismiss: (() -> Void)?
     
     private let colorColumns = [GridItem](repeating: GridItem(spacing: 20), count: 4)
@@ -79,6 +85,7 @@ struct DecorateTicketView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(role: .destructive) {
+                        updateRecord()
                         if let dismiss = dismiss {
                             dismiss()
                         }
@@ -111,12 +118,12 @@ struct DecorateTicketView: View {
                     .overlay(
                         Circle()
                             .strokeBorder(.primary,
-                                          lineWidth: selectedColor == ticketColor ? 4 : 0)
+                                          lineWidth: color == ticketColor ? 4 : 0)
                             .frame(width: 58, height: 58)
                     )
                     .onTapGesture {
                         withAnimation(.interactiveSpring()) {
-                            selectedColor = ticketColor
+                            color = ticketColor
                         }
                     }
             }
@@ -161,15 +168,31 @@ struct DecorateTicketView: View {
         LazyVGrid(columns: shapeColumns, spacing: 30) {
             ForEach(TicketShape.allCases) { ticketShape in
                 ticketShape
-                    .makeShape(color: ticketShape == selectedShape ? selectedColor.color : Color(.systemGray6))
+                    .makeShape(color: ticketShape == shape ? color.color : Color(.systemGray6))
                     .frame(width: 64, height: 64)
                     .onTapGesture {
                         withAnimation(.spring()) {
-                            selectedShape = ticketShape
+                            shape = ticketShape
                         }
                     }
             }
         }
+    }
+    
+    private func save() {
+        do {
+            try viewContext.save()
+        } catch {
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        }
+    }
+    
+    private func updateRecord() {
+        record.title = title
+        record.ticket?.colorName = color.name
+        record.ticket?.shapeName = shape.name
+        save()
     }
 }
 
@@ -236,8 +259,8 @@ struct CapsulePicker: View {
     }
 }
 
-struct DecorateTicketView_Previews: PreviewProvider {
-    static var previews: some View {
-        DecorateTicketView(){}
-    }
-}
+//struct DecorateTicketView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DecorateTicketView(){}
+//    }
+//}

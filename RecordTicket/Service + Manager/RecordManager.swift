@@ -10,7 +10,7 @@ import AVKit
 
 final class RecordManager: ObservableObject {
     var recorder: AVAudioRecorder!
-    var recordURL: URL?
+    var fileName: String?
     
     let settings = [
         AVFormatIDKey : Int(kAudioFormatAppleLossless),
@@ -22,8 +22,10 @@ final class RecordManager: ObservableObject {
     func start() {
         let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         
-        let filName = url.appendingPathComponent("Recital_.m4a")
-        self.recordURL = filName
+        let name = "\(UUID().uuidString).m4a"
+        self.fileName = name
+        
+        let filName = url.appendingPathComponent(name)
         
         do {
             let session = AVAudioSession.sharedInstance()

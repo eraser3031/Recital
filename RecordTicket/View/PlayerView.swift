@@ -52,6 +52,8 @@ struct PlayerView: View {
                         }
                     }
                     .tint(.white)
+                    .padding(.horizontal, 20
+                    )
                     .animation(.linear, value: value)
                     
                     Text("-03:23")
@@ -115,7 +117,7 @@ struct PlayerView: View {
             }
         }
         .onAppear{
-            am.startPlayer(url: record.url!)
+            am.startPlayer(fileName: record.fileName ?? "")
         }
         .onReceive(timer) { _ in
             guard let player = am.player, !isEditing else { return }

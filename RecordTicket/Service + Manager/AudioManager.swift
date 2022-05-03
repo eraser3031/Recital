@@ -14,17 +14,16 @@ final class AudioManager: ObservableObject {
     var player: AVAudioPlayer?
     @Published private(set) var isLooping: Bool = false
     
-    func startPlayer(url: URL) {
-        //        guard let url = Bundle.main.url(forResource: track, withExtension: "m4a") else {
-        //            print("Resource not found: \(track)")
-        //            return
-        //        }
-        
+    func startPlayer(fileName: String) {
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
             UIApplication.shared.beginReceivingRemoteControlEvents()
-            player = try AVAudioPlayer(contentsOf: url)
+            
+            let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            let fullURL = url.appendingPathComponent(fileName)
+            
+            player = try AVAudioPlayer(contentsOf: fullURL)
             player?.play()
             
             setupCommandCenter()
