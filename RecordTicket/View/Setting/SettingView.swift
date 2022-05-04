@@ -209,7 +209,7 @@ struct SettingView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 120, height: 120)
-                            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                            .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
                         
                         Text("Re cital")
                             .font(.title.bold())

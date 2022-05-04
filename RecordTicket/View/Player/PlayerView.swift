@@ -31,33 +31,53 @@ struct PlayerView: View {
             VStack(spacing: 30) {
                 Rectangle()
                     .overlay(
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
+                        ZStack {
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                            
+                            Color.black.opacity(0.1)
+                        }
                     )
                     .cornerRadius(1000, corners: [.bottomLeft, .bottomRight])
                     .padding(.bottom)
-                    
+                    .overlay(alignment: .bottom){
+                        VStack {
+                            Text(record.title ?? "")
+                                .scaledFont(name: CustomFont.gothicNeoHeavy, size: 22)
+                            
+                            Text(record.date ?? Date(), format: Date.FormatStyle(date: .long, time: .omitted))
+                                .font(.subheadline.weight(.semibold))
+                        }
+                        .foregroundColor(.white)
+                        .padding(.bottom, 100)
+                    }
+                
+                
                 
                 VStack(spacing: 24) {
-//                    HLine()
-//                        .stroke(TicketColor.pink.color, lineWidth: 80)
-//                        .frame(height: 80)
                     
-                    Slider(value: $value, in: 0...(am.player?.duration ?? 0)) { editing in
-                        isEditing = editing
-                        if !editing {
-                            am.player?.currentTime = value
+                    VStack(spacing: 8) {
+                        HStack {
+                            Text(DateComponentsFormatter.positional.string(from: am.player?.currentTime ?? 0) ?? "0:00")
+                            Spacer()
+                            Text(DateComponentsFormatter.positional.string(from: am.player?.duration ?? 0) ?? "0:00")
                         }
-                    }
-                    .tint(.white)
-                    .padding(.horizontal, 20
-                    )
-                    .animation(.linear, value: value)
-                    
-                    Text("-03:23")
-                        .font(.subheadline.bold())
+                        .font(.caption)
                         .foregroundColor(Color(.systemBackground))
+                        .padding(.horizontal, 20)
+                        
+                        CustomPlayerSlider(value: $value, in: 0...(am.player?.duration ?? 0), color: record.ticket?.color ?? .black) { editing in
+                            isEditing = editing
+                            if !editing {
+                                am.player?.currentTime = value
+                            }
+                        }
+                        .frame(height: 50 + 8)
+                        .tint(.white)
+                        .padding(.horizontal, 20)
+                        .animation(.timingCurve(0.25, 1, 0.5, 1), value: value)
+                    }
                     
                     HStack(spacing: 60) {
                         Button {
@@ -71,7 +91,7 @@ struct PlayerView: View {
                         Button {
                             am.playPause()
                         } label: {
-                            Image(systemName: (am.player?.isPlaying ?? false) ? "pause.fill" : "play.fill")
+                            Image(systemName: (am.player?.isPlaying ?? false) ? "pause.circle.fill" : "play.circle.fill")
                                 .font(.system(size: 46, weight: .bold, design: .default))
                         }
                         .buttonStyle(playerButtonStyle())
@@ -86,7 +106,7 @@ struct PlayerView: View {
                     }
                     .foregroundColor(Color(.systemBackground))
                 }
-                .padding(.bottom, 20)
+                .padding(.bottom, 32)
             }
             .ignoresSafeArea(.all, edges: .top)
             
@@ -105,7 +125,7 @@ struct PlayerView: View {
                     Button(role: .destructive) {
                         dismiss()
                     } label: {
-                        Image(systemName: "pencil")
+                        Image(systemName: "ellipsis")
                             .font(.headline)
                     }
                     .buttonStyle(FloatButtonStyle())

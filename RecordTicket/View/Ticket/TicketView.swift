@@ -106,7 +106,7 @@ struct TicketView: View {
         }
         .overlay(
             Image("NoiseTexture")
-                .opacity(0.14)
+                .opacity(0.12)
                 .blendMode(colorScheme == .light ? .lighten : .overlay)
         )
         .onTapGesture {
@@ -122,7 +122,7 @@ struct TicketView: View {
         VStack(alignment: .leading) {
             Text(record.title ?? "")
 //                .font(.headline)
-                .scaledFont(name: CustomFont.gothicNeoHeavy, size: 17)
+                .scaledFont(name: CustomFont.gothicNeoExBold, size: 17)
                 .lineLimit(1)
             
             Spacer()
@@ -142,7 +142,7 @@ struct TicketView: View {
             }
             .font(.subheadline)
         }
-        .padding()
+        .padding(20)
         .background(
             record.ticket?.ticketShape
                 .makeShape(color: record.ticket?.color ?? Color(.systemGray6))
