@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+extension Color {
+    static let theme = ColorTheme()
+}
+
+struct ColorTheme {
+    let background = Color("Background")
+}
+
 enum TicketColor: String, Identifiable, CaseIterable {
     case pink
     case deepPink

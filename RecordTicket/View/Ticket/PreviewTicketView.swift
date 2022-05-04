@@ -9,6 +9,8 @@ import SwiftUI
 
 struct PreviewTicketView: View {
     
+    @Environment(\.colorScheme) var colorScheme
+    
     @Binding var title: String
     @Binding var color: TicketColor
     @Binding var image: [UIImage]
@@ -24,12 +26,17 @@ struct PreviewTicketView: View {
             subPart
         }
         .aspectRatio(2.5, contentMode: .fit)
+        .overlay(
+            Image("NoiseTexture")
+                .opacity(0.12)
+                .blendMode(colorScheme == .light ? .lighten : .overlay)
+        )
     }
     
     private var mainPart: some View {
         VStack(alignment: .leading) {
             Text(title)
-                .font(.headline)
+                .scaledFont(name: CustomFont.gothicNeoHeavy, size: 17)
                 .lineLimit(1)
             
             Spacer()

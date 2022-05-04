@@ -17,6 +17,7 @@ class RecordViewModel: ObservableObject {
         newRecord.fileName = fileName
         newRecord.length = length
         newRecord.location = location
+        newRecord.date = Date()
         
         let newTicket = Ticket(context: manager.context)
         newTicket.shapeName = TicketShape.rectangle.name

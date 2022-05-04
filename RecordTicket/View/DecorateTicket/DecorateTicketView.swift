@@ -63,7 +63,7 @@ struct DecorateTicketView: View {
                         
                         ZStack {
                             RoundedRectangle(cornerRadius: 28, style: .continuous)
-                                .fill(Color(.systemBackground))
+                                .fill(Color.theme.background)
                             
                             if decoCase == .title {
                                 titleBox

@@ -15,7 +15,6 @@ enum AlignmentCase: String, CaseIterable {
 struct TicketListView: View {
     
     @StateObject var vm = TicketListViewModel()
-    @State private var alignmentCase: AlignmentCase = .recent
     
     @Binding var showRecordView: Bool
     
@@ -34,19 +33,19 @@ struct TicketListView: View {
             HStack(spacing: 16) {
                 Text("최근 순")
                     .scaledFont(name: CustomFont.gothicNeoExBold, size: 17)
-                    .foregroundColor(alignmentCase == .recent ? .primary : Color(.systemGray4))
+                    .foregroundColor(vm.alignCase == .recent ? .primary : Color(.systemGray4))
                     .onTapGesture {
                         withAnimation(.spring()) {
-                            alignmentCase = .recent
+                            vm.alignCase = .recent
                         }
                     }
                 
                 Text("감상 순")
                     .scaledFont(name: CustomFont.gothicNeoExBold, size: 17)
-                    .foregroundColor(alignmentCase == .played ? .primary : Color(.systemGray4))
+                    .foregroundColor(vm.alignCase == .played ? .primary : Color(.systemGray4))
                     .onTapGesture {
                         withAnimation(.spring()) {
-                            alignmentCase = .played
+                            vm.alignCase = .played
                         }
                     }
                 Spacer()
@@ -76,7 +75,10 @@ struct TicketListView: View {
             }
             .listStyle(.plain)
         }
-        .confirmationDialog("정말로 해당 녹음을 삭제하시겠어요?", isPresented: $deleteDialog, presenting: deletingRecord) { record in
+        .confirmationDialog("정말로 해당 녹음을 삭제하시겠어요?",
+                            isPresented: $deleteDialog,
+                            titleVisibility: .visible,
+                            presenting: deletingRecord) { record in
             Button("네", role: .destructive) {
                 withAnimation {
                     vm.delete(record: record)
@@ -104,6 +106,11 @@ struct TicketListView: View {
         }
         .onAppear{
             UITableView.appearance().showsVerticalScrollIndicator = false
+        }
+        .onChange(of: vm.alignCase) { _ in
+            withAnimation(.spring()) {
+                vm.getEntities()
+            }
         }
     }
 }

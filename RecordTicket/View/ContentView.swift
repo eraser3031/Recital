@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @AppStorage("colorScheme") var colorScheme: Bool?
     @State private var tabSelection: TabBarItem = .tickets
     @State private var showRecordView = false
     
@@ -17,9 +18,10 @@ struct ContentView: View {
             TicketListView(showRecordView: $showRecordView)
                 .tabBarItem(tab: .tickets, selection: $tabSelection)
             
-            SettingView()
+            SettingView(colorScheme: $colorScheme)
                 .tabBarItem(tab: .settings, selection: $tabSelection)
         }
+        .preferredColorScheme(colorScheme == nil ? nil : (colorScheme ?? false) == true ? .dark : .light)
     }
 }
 

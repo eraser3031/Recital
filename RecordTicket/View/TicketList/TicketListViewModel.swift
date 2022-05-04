@@ -12,6 +12,7 @@ import SwiftUI
 class TicketListViewModel: ObservableObject {
     
     @Published var records: [Record] = []
+    @Published var alignCase: AlignmentCase = .recent
     
     let manager = CoreDataManager.instance
     
@@ -21,12 +22,13 @@ class TicketListViewModel: ObservableObject {
     
     func getEntities() {
         let request = NSFetchRequest<Record>(entityName: "Record")
-        
+        var sort = NSSortDescriptor(keyPath: \Record.title, ascending: true)
+        if alignCase == .played {
+            sort = NSSortDescriptor(keyPath: \Record.length, ascending: true)
+        }
+        request.sortDescriptors = [sort]
         do {
             records = try manager.context.fetch(request)
-            records.forEach { record in
-                print(record.ticket?.colorName ?? "-")
-            }
         } catch let error {
             print("\(error)")
         }

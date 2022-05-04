@@ -133,6 +133,14 @@
 			path = Ticket;
 			sourceTree = "<group>";
 		};
+		21059BBC282244F10056CA6E /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				21743871281926B5007923AB /* SettingView.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		211C69CD2816BA6D00869592 = {
 			isa = PBXGroup;
 			children = (
@@ -215,9 +223,9 @@
 				211C69DB2816BA6D00869592 /* ContentView.swift */,
 				21059BAE28210F4C0056CA6E /* TicketList */,
 				21059BB3282111F40056CA6E /* Record */,
-				21743871281926B5007923AB /* SettingView.swift */,
 				21059BB928212C9E0056CA6E /* Ticket */,
 				21059BB62821172C0056CA6E /* DecorateTicket */,
+				21059BBC282244F10056CA6E /* Setting */,
 				21EF6FF7281A6AFF00B60288 /* PlayerView.swift */,
 			);
 			path = View;

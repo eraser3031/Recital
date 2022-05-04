@@ -46,10 +46,10 @@ enum TicketShape: String, Identifiable, CaseIterable {
             Rectangle()
                 .fill(color)
         case .rounded:
-            RoundedRectangle(cornerRadius: 12, style: .continuous)
+            RoundedRectangle(cornerRadius: 8, style: .continuous)
                 .fill(color)
         case .moreRounded:
-            RoundedRectangle(cornerRadius: 24, style: .continuous)
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
                 .fill(color)
         case .edge:
             EdgeRectangle()
@@ -89,8 +89,7 @@ extension Ticket {
 
 struct TicketView: View {
     
-//    @Environment(\.managedObjectContext) private var viewContext
-    
+    @Environment(\.colorScheme) var colorScheme
     @ObservedObject var record: Record
     
     @State private var showDialog = false
@@ -105,6 +104,11 @@ struct TicketView: View {
             mainPart
             subPart
         }
+        .overlay(
+            Image("NoiseTexture")
+                .opacity(0.14)
+                .blendMode(colorScheme == .light ? .lighten : .overlay)
+        )
         .onTapGesture {
             showPlayer = true
         }
@@ -117,8 +121,8 @@ struct TicketView: View {
     private var mainPart: some View {
         VStack(alignment: .leading) {
             Text(record.title ?? "")
-                .font(.headline)
-//                .scaledFont(name: CustomFont.gothicNeoHeavy, size: 17)
+//                .font(.headline)
+                .scaledFont(name: CustomFont.gothicNeoHeavy, size: 17)
                 .lineLimit(1)
             
             Spacer()
@@ -126,12 +130,15 @@ struct TicketView: View {
             HStack(alignment: .bottom) {
                 VStack(alignment: .leading) {
                     Text(record.date ?? Date(), format: Date.FormatStyle(date: .long, time: .omitted) )
+                        .font(.subheadline.weight(.semibold))
                     Text(record.date ?? Date(), format: Date.FormatStyle(date: .omitted, time: .shortened) )
+                        .font(.subheadline.weight(.semibold))
                 }
                      
                 Spacer()
                 
                 Text(record.location ?? "위치정보 없음")
+                    .font(.subheadline.weight(.semibold))
             }
             .font(.subheadline)
         }
@@ -155,7 +162,7 @@ struct TicketView: View {
             .overlay(
                 VLine()
                     .stroke(Color(.systemBackground), style: .init(lineWidth: 2, dash: [8, 8]))
-                    .frame(width: 2)
+                    .frame(width: 12)
                     .padding(.vertical, cornerRadius)
                 ,alignment: .leading
             )
