@@ -85,7 +85,7 @@ struct DecorateTicketView: View {
                         }
                     }
                     .frame(maxWidth: 400)
-                    .frame(height: 320)
+                    .frame(maxHeight: 320)
                     .padding(.horizontal, 20)
                     .padding(.bottom, 20)
                 }
@@ -199,8 +199,8 @@ struct DecorateTicketView: View {
 enum DecoCase: String, Identifiable, CaseIterable {
     case title
     case color
-    case image
     case shape
+    case image
     
     var id: String {
         self.rawValue
@@ -251,9 +251,9 @@ struct CapsulePicker: View {
             return width / 4
         case .color:
             return width / 2
-        case .image:
-            return width / 4 * 3
         case .shape:
+            return width / 4 * 3
+        case .image:
             return width
         }
     }

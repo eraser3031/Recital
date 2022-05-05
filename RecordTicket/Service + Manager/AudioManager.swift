@@ -14,7 +14,7 @@ final class AudioManager: ObservableObject {
     var player: AVAudioPlayer?
     @Published private(set) var isLooping: Bool = false
     
-    func startPlayer(fileName: String) {
+    func startPlayer(fileName: String, title: String, image: UIImage) {
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
@@ -27,7 +27,7 @@ final class AudioManager: ObservableObject {
             player?.play()
             
             setupCommandCenter()
-            remoteCommandInfoCenterSetting()
+            remoteCommandInfoCenterSetting(title: title, image: image)
         } catch {
             print(error.localizedDescription)
         }
@@ -51,11 +51,14 @@ final class AudioManager: ObservableObject {
         commandCenter.seekBackwardCommand.isEnabled = true
     }
     
-    func remoteCommandInfoCenterSetting() {
+    func remoteCommandInfoCenterSetting(title: String, image: UIImage) {
         let center = MPNowPlayingInfoCenter.default()
         var nowPlayingInfo = center.nowPlayingInfo ?? [String: Any]()
-        nowPlayingInfo[MPMediaItemPropertyTitle] = "콘텐츠 제목"
-        nowPlayingInfo[MPMediaItemPropertyArtist] = "콘텐츠 아티스트"
+        nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: CGSize(width: 250, height: 250), requestHandler: { _ in
+            return image
+        })
+        nowPlayingInfo[MPMediaItemPropertyTitle] = title
+        nowPlayingInfo[MPMediaItemPropertyArtist] = "Re cital"
         // 콘텐츠 총 길이
         nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = player?.duration
         // 콘텐츠 재생 시간에 따른 progressBar 초기화

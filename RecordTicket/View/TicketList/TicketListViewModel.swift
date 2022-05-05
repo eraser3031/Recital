@@ -22,9 +22,9 @@ class TicketListViewModel: ObservableObject {
     
     func getEntities() {
         let request = NSFetchRequest<Record>(entityName: "Record")
-        var sort = NSSortDescriptor(keyPath: \Record.title, ascending: true)
+        var sort = NSSortDescriptor(keyPath: \Record.date, ascending: false)
         if alignCase == .played {
-            sort = NSSortDescriptor(keyPath: \Record.length, ascending: true)
+            sort = NSSortDescriptor(keyPath: \Record.length, ascending: false)
         }
         request.sortDescriptors = [sort]
         do {

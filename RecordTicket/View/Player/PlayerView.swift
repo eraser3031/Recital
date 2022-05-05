@@ -137,7 +137,11 @@ struct PlayerView: View {
             }
         }
         .onAppear{
-            am.startPlayer(fileName: record.fileName ?? "")
+            var image = UIImage()
+            if let imageName = record.ticket?.imageName {
+                image = ImageManager.instance.getImage(named: imageName)
+            }
+            am.startPlayer(fileName: record.fileName ?? "", title: record.title ?? "제목없음", image: image)
         }
         .onReceive(timer) { _ in
             guard let player = am.player, !isEditing else { return }

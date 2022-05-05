@@ -30,8 +30,8 @@ struct PreviewTicketView: View {
         .aspectRatio(2.5, contentMode: .fit)
         .overlay(
             Image("NoiseTexture")
-                .opacity(0.12)
-                .blendMode(colorScheme == .light ? .lighten : .overlay)
+                .opacity(0.1)
+                .blendMode(.screen)
         )
         .modifier(
             FlipModifier(progress: decoCase != .image ? 1 : 0) {
@@ -42,8 +42,8 @@ struct PreviewTicketView: View {
                 .aspectRatio(2.5, contentMode: .fit)
                 .overlay(
                     Image("NoiseTexture")
-                        .opacity(0.12)
-                        .blendMode(colorScheme == .light ? .lighten : .overlay)
+                        .opacity(0.1)
+                        .blendMode(.screen)
                 )
 
             }
