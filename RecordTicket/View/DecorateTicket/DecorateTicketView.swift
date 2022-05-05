@@ -17,7 +17,7 @@ struct DecorateTicketView: View {
     
     @State private var title: String
     @State private var color: TicketColor
-    @State private var images: [UIImage] = []
+    @State private var images: [UIImage]
     @State private var shape: TicketShape
     
     @State private var showPhotoPicker = false
@@ -30,6 +30,11 @@ struct DecorateTicketView: View {
         self.title = record.title ?? ""
         self.color = record.ticket?.ticketColor ?? .pink
         self.shape = record.ticket?.ticketShape ?? .rectangle
+        if let imageName = record.ticket?.imageName {
+            self.images = [ImageManager.instance.getImage(named: imageName)]
+        } else {
+            self.images = []
+        }
     }
     
     private let colorColumns = [GridItem](repeating: GridItem(spacing: 20), count: 4)
@@ -52,7 +57,8 @@ struct DecorateTicketView: View {
                                       shape: $shape,
                                       date: record.date ?? Date(),
                                       location: record.location ?? "",
-                                      length: record.length ?? "")
+                                      length: record.length ?? "",
+                                      decoCase: $decoCase)
                     .padding(.horizontal, 20)
                     
                     Spacer()
@@ -79,7 +85,7 @@ struct DecorateTicketView: View {
                         }
                     }
                     .frame(maxWidth: 400)
-                    .frame(maxHeight: 320)
+                    .frame(height: 320)
                     .padding(.horizontal, 20)
                     .padding(.bottom, 20)
                 }
@@ -97,7 +103,7 @@ struct DecorateTicketView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(role: .destructive) {
-                        vm.updateRecord(record: record, title: title, color: color, shape: shape)
+                        vm.updateRecord(record: record, title: title, color: color, image: images.first, shape: shape)
                         dismiss()
                     } label: {
                         Text("완료")
@@ -150,7 +156,7 @@ struct DecorateTicketView: View {
                         Image(systemName: "plus")
                             .font(.largeTitle.weight(.semibold))
                         
-                        if let image = images.first {
+                        if let image = images.last {
                             Image(uiImage: image)
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)

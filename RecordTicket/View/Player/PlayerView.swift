@@ -17,8 +17,6 @@ struct PlayerView: View {
     @State private var value: Double = 0.0
     @State private var isEditing = false
     
-    @State private var image = Image("TestImage")
-    
     let timer = Timer
         .publish(every: 0.1, on: .main, in: .common)
         .autoconnect()
@@ -28,13 +26,15 @@ struct PlayerView: View {
             record.ticket?.color
                 .ignoresSafeArea()
             
-            VStack(spacing: 30) {
+            VStack(spacing: 20) {
                 Rectangle()
                     .overlay(
                         ZStack {
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
+                            if let imageName = record.ticket?.imageName {
+                                Image(uiImage: ImageManager.instance.getImage(named: imageName))
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                            }
                             
                             Color.black.opacity(0.1)
                         }
@@ -78,6 +78,7 @@ struct PlayerView: View {
                         .padding(.horizontal, 20)
                         .animation(.timingCurve(0.25, 1, 0.5, 1), value: value)
                     }
+                    .padding(.bottom, 10)
                     
                     HStack(spacing: 60) {
                         Button {

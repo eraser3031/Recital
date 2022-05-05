@@ -20,6 +20,8 @@ struct PreviewTicketView: View {
     var location: String
     var length: String
     
+    @Binding var decoCase: DecoCase
+    
     var body: some View {
         HStack(spacing: 0){
             mainPart
@@ -30,6 +32,21 @@ struct PreviewTicketView: View {
             Image("NoiseTexture")
                 .opacity(0.12)
                 .blendMode(colorScheme == .light ? .lighten : .overlay)
+        )
+        .modifier(
+            FlipModifier(progress: decoCase != .image ? 1 : 0) {
+                HStack(spacing: 0){
+                    outsideMainPart
+                    subPart
+                }
+                .aspectRatio(2.5, contentMode: .fit)
+                .overlay(
+                    Image("NoiseTexture")
+                        .opacity(0.12)
+                        .blendMode(colorScheme == .light ? .lighten : .overlay)
+                )
+
+            }
         )
     }
     
@@ -60,12 +77,40 @@ struct PreviewTicketView: View {
         )
     }
     
+    private var outsideMainPart: some View {
+        GeometryReader { geo in
+            HStack {
+                if let background = image.last {
+                    Image( background.cgImage!, scale: 1, orientation: .left, label: Text(""))
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: geo.size.width / 5 * 4, height: geo.size.height)
+                        .cornerRadius(100, corners: [.bottomRight, .topRight])
+                }
+                
+                Spacer()
+            }
+        }
+        .background(
+            shape
+                .makeShape(color: color.color)
+        )
+    }
+
+    
     private var subPart: some View {
         Text(length)
             .fontWeight(.heavy)
             .rotationEffect(Angle(degrees: -90))
             .padding()
             .frame(maxHeight: .infinity)
+            .opacity(decoCase == .image ? 0 : 1)
+            .overlay(
+                Image(systemName: "waveform")
+                    .font(.title2.bold())
+                    .rotationEffect(Angle(degrees: -90))
+                    .opacity(decoCase != .image ? 0 : 1)
+            )
             .background(
                 shape
                     .makeShape(color: color.color)

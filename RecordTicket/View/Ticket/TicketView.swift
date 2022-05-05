@@ -106,8 +106,10 @@ struct TicketView: View {
         }
         .overlay(
             Image("NoiseTexture")
-                .opacity(0.12)
-                .blendMode(colorScheme == .light ? .lighten : .overlay)
+                .resizable()
+                .clipped()
+                .opacity(0.1)
+                .blendMode(.screen)
         )
         .onTapGesture {
             showPlayer = true

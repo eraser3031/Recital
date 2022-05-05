@@ -12,9 +12,12 @@ class DecorateTicketViewModel: ObservableObject {
     
     let manager = CoreDataManager.instance
     
-    func updateRecord(record: Record, title: String, color: TicketColor, shape: TicketShape) {
+    func updateRecord(record: Record, title: String, color: TicketColor, image: UIImage?, shape: TicketShape) {
         record.title = title
         record.ticket?.colorName = color.name
+        if let image = image {
+            record.ticket?.imageName = ImageManager.instance.saveImage(uiImage: image)
+        }
         record.ticket?.shapeName = shape.name
         manager.save()
     }
