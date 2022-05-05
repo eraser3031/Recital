@@ -39,6 +39,7 @@
 		2174387428193658007923AB /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2174387328193658007923AB /* Style.swift */; };
 		21A6C2432823B74A00853D8B /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A6C2422823B74A00853D8B /* Modifier.swift */; };
 		21A6C2452823C2AA00853D8B /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A6C2442823C2AA00853D8B /* ImageManager.swift */; };
+		21B831252823F85D00E209EB /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B831242823F85D00E209EB /* CustomSheet.swift */; };
 		21EF6FF6281A5F8D00B60288 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EF6FF5281A5F8D00B60288 /* Color.swift */; };
 		21EF6FF8281A6AFF00B60288 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EF6FF7281A6AFF00B60288 /* PlayerView.swift */; };
 		21EF6FFA281A6BAD00B60288 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EF6FF9281A6BAD00B60288 /* RoundedCorner.swift */; };
@@ -83,6 +84,7 @@
 		2174387328193658007923AB /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		21A6C2422823B74A00853D8B /* Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifier.swift; sourceTree = "<group>"; };
 		21A6C2442823C2AA00853D8B /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		21B831242823F85D00E209EB /* CustomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheet.swift; sourceTree = "<group>"; };
 		21EF6FF5281A5F8D00B60288 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		21EF6FF7281A6AFF00B60288 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		21EF6FF9281A6BAD00B60288 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				21EF6FF5281A5F8D00B60288 /* Color.swift */,
 				2138E4B4281BAF9D00B26CA9 /* Date.swift */,
 				21A6C2422823B74A00853D8B /* Modifier.swift */,
+				21B831242823F85D00E209EB /* CustomSheet.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				21059BC128225C370056CA6E /* CustomPlayerSlider.swift in Sources */,
 				2138E4B5281BAF9D00B26CA9 /* Date.swift in Sources */,
 				2174386E28191073007923AB /* CustomTab.swift in Sources */,
+				21B831252823F85D00E209EB /* CustomSheet.swift in Sources */,
 				21EF7003281A8A8C00B60288 /* EdgeRectangle.swift in Sources */,
 				21059BB228210FF40056CA6E /* CoreDataManager.swift in Sources */,
 				21EF6FFC281A7D1200B60288 /* TextAlert.swift in Sources */,

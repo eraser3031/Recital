@@ -28,8 +28,12 @@ struct PreviewTicketView: View {
             subPart
         }
         .aspectRatio(2.5, contentMode: .fit)
+        .frame(maxWidth: 460)
         .overlay(
             Image("NoiseTexture")
+                .resizable()
+                .scaledToFill()
+                .clipped()
                 .opacity(0.1)
                 .blendMode(.screen)
         )
@@ -40,12 +44,15 @@ struct PreviewTicketView: View {
                     subPart
                 }
                 .aspectRatio(2.5, contentMode: .fit)
+                .frame(maxWidth: 460)
                 .overlay(
                     Image("NoiseTexture")
+                        .resizable()
+                        .scaledToFill()
+                        .clipped()
                         .opacity(0.1)
                         .blendMode(.screen)
                 )
-
             }
         )
     }

@@ -13,6 +13,7 @@ extension Color {
 
 struct ColorTheme {
     let background = Color("Background")
+    let groupedBackground = Color("GroupedBackground")
 }
 
 enum TicketColor: String, Identifiable, CaseIterable {

@@ -118,6 +118,7 @@ struct TicketView: View {
             PlayerView(record: record)
         }
         .aspectRatio(2.5, contentMode: .fit)
+        .frame(maxWidth: 460)
     }
     
     private var mainPart: some View {

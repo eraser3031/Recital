@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingView: View {
     
     @Binding var colorScheme: Bool?
+    @State private var showColorScheme = false
     @State private var selected = 1
     
     var body: some View {
@@ -33,69 +34,26 @@ struct SettingView: View {
                 Spacer()
             }
             .navigationBarHidden(true)
+            .customSheet(title: "화면 테마", isPresented: $showColorScheme) {
+                ColorSchemeSettingView(colorScheme: $colorScheme)
+            }
         }
+        .navigationViewStyle(.stack)
         .accentColor(.primary)
     }
     
     private var themeSection: some View {
         CustomSection(title: "테마") {
-            NavigationLink {
-                VStack(spacing: 0) {
-                    Button {
-                        colorScheme = nil
-                    } label: {
-                        HStack {
-                            Text("시스템 설정")
-                            Spacer()
-                            Image(systemName: colorScheme == nil ? "checkmark.circle.fill" : "circle")
-                                .font(.title2.weight(.semibold))
-                        }
-                        .padding(.vertical, 6)
-                        .padding(12)
-                    }
-                    
-                    Divider()
-                    
-                    Button {
-                        colorScheme = false
-                    } label: {
-                        HStack {
-                            Text("라이트 모드")
-                            Spacer()
-                            Image(systemName: colorScheme == false ? "checkmark.circle.fill" : "circle")
-                                .font(.title2.weight(.semibold))
-                        }
-                        .padding(.vertical, 6)
-                        .padding(12)
-                    }
-                    
-                    Divider()
-                    
-                    Button {
-                        colorScheme = true
-                    } label: {
-                        HStack {
-                            Text("다크 모드")
-                            Spacer()
-                            Image(systemName: colorScheme == true ? "checkmark.circle.fill" : "circle")
-                                .font(.title2.weight(.semibold))
-                        }
-                        .padding(.vertical, 6)
-                        .padding(12)
-                    }
-                    
-                    Spacer()
+            Button {
+                withAnimation(.spring()) {
+                    showColorScheme = true
                 }
-                .padding([.horizontal, .top], 20)
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationTitle("화면 테마")
             } label: {
                 HStack {
                     Text("화면 테마")
                         .foregroundColor(.primary)
                     Spacer()
                     Text(colorScheme == nil ? "시스템 설정" : (colorScheme ?? false) ? "다크 모드" : "라이트 모드")
-                    Image(systemName: "chevron.right")
                 }
             }
             .padding(12)
@@ -240,6 +198,65 @@ struct SettingView: View {
     }
 }
 
+struct ColorSchemeSettingView: View {
+    
+    @Binding var colorScheme: Bool?
+    
+    var body: some View {
+        HStack(spacing: 24) {
+            Button {
+                colorScheme = nil
+            } label: {
+                VStack {
+                    Image("System")
+                        .resizable()
+                        .aspectRatio(1, contentMode: .fit)
+                    Text("시스템 설정")
+                        .font(.footnote.weight(.semibold))
+                        .padding(.bottom, 8)
+                    Image(systemName: colorScheme == nil ? "checkmark.circle.fill" : "circle")
+                        .font(.title2.weight(.semibold))
+                }
+                .padding(.vertical)
+            }
+            
+            Button {
+                colorScheme = false
+            } label: {
+                VStack {
+                    Image("Light")
+                        .resizable()
+                        .aspectRatio(1, contentMode: .fit)
+                    Text("라이트 모드")
+                        .font(.footnote.weight(.semibold))
+                        .padding(.bottom, 8)
+                    Image(systemName: colorScheme == false ? "checkmark.circle.fill" : "circle")
+                        .font(.title2.weight(.semibold))
+                }
+                .padding(.vertical)
+            }
+            
+            Button {
+                colorScheme = true
+            } label: {
+                VStack {
+                    Image("Dark")
+                        .resizable()
+                        .aspectRatio(1, contentMode: .fit)
+                    Text("다크 모드")
+                        .font(.footnote.weight(.semibold))
+                        .padding(.bottom, 8)
+                    Image(systemName: colorScheme == true ? "checkmark.circle.fill" : "circle")
+                        .font(.title2.weight(.semibold))
+                }
+                .padding(.vertical)
+            }
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("화면 테마")
+    }
+}
+
 struct CustomSection<Content: View>: View {
     
     var title: LocalizedStringKey
@@ -268,6 +285,7 @@ struct CustomSection<Content: View>: View {
 
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingView(colorScheme: .constant(nil))
+//        SettingView(colorScheme: .constant(nil))
+        ColorSchemeSettingView(colorScheme: .constant(false))
     }
 }
