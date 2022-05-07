@@ -1,2 +1,14 @@
 # Recital
-![Image of eraiser](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbtsm6c%2FbtrBpnScP1q%2FmSjBRtLkchZYYP6UVh9Tl0%2Fimg.png)
+<img src="./icon_recital.png" width="160" height="160">
+
+```
+나만의 엠비언트 사운드를 녹음하고 들으며 그 순간을 추억하고 항유하다.
+recordiing and listening to your own ambient sound, remember that moment, and enjoy it
+```
+</br>
+
+<div>
+  <kbd>
+    <img src="./sum_recital.png" width="100%" height="50%">
+  </kbd>
+</div>
