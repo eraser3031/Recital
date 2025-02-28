@@ -47,6 +47,11 @@
 		21EF7001281A86FA00B60288 /* RecitalModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21EF6FFF281A86FA00B60288 /* RecitalModel.xcdatamodeld */; };
 		21EF7003281A8A8C00B60288 /* EdgeRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EF7002281A8A8C00B60288 /* EdgeRectangle.swift */; };
 		4D5213702D719DC300290EA1 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4D52136F2D719DC300290EA1 /* Localizable.xcstrings */; };
+		4D5213722D71A1D900290EA1 /* ImageManageSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5213712D71A1D900290EA1 /* ImageManageSettingView.swift */; };
+		4D5213742D71A21000290EA1 /* DataManageSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5213732D71A21000290EA1 /* DataManageSettingView.swift */; };
+		4D52137A2D71A2F000290EA1 /* InfoSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5213792D71A2F000290EA1 /* InfoSettingView.swift */; };
+		4D52137D2D71A35300290EA1 /* SettingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D52137C2D71A35300290EA1 /* SettingSection.swift */; };
+		4D52137F2D71A3AD00290EA1 /* ColorThemeSettingSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D52137E2D71A3AD00290EA1 /* ColorThemeSettingSheetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +96,11 @@
 		21EF7000281A86FA00B60288 /* RecitalModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecitalModel.xcdatamodel; sourceTree = "<group>"; };
 		21EF7002281A8A8C00B60288 /* EdgeRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeRectangle.swift; sourceTree = "<group>"; };
 		4D52136F2D719DC300290EA1 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		4D5213712D71A1D900290EA1 /* ImageManageSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManageSettingView.swift; sourceTree = "<group>"; };
+		4D5213732D71A21000290EA1 /* DataManageSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManageSettingView.swift; sourceTree = "<group>"; };
+		4D5213792D71A2F000290EA1 /* InfoSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSettingView.swift; sourceTree = "<group>"; };
+		4D52137C2D71A35300290EA1 /* SettingSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSection.swift; sourceTree = "<group>"; };
+		4D52137E2D71A3AD00290EA1 /* ColorThemeSettingSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemeSettingSheetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,7 +153,11 @@
 		21059BBC282244F10056CA6E /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				4D52137B2D71A34900290EA1 /* Components */,
 				21743871281926B5007923AB /* SettingView.swift */,
+				4D5213712D71A1D900290EA1 /* ImageManageSettingView.swift */,
+				4D5213732D71A21000290EA1 /* DataManageSettingView.swift */,
+				4D5213792D71A2F000290EA1 /* InfoSettingView.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -287,6 +301,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		4D52137B2D71A34900290EA1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4D52137C2D71A35300290EA1 /* SettingSection.swift */,
+				4D52137E2D71A3AD00290EA1 /* ColorThemeSettingSheetView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -368,8 +391,10 @@
 				21638D7D28196CA7001AA45A /* DecorateTicketView.swift in Sources */,
 				21059BC128225C370056CA6E /* CustomPlayerSlider.swift in Sources */,
 				2138E4B5281BAF9D00B26CA9 /* Date.swift in Sources */,
+				4D52137A2D71A2F000290EA1 /* InfoSettingView.swift in Sources */,
 				2174386E28191073007923AB /* CustomTab.swift in Sources */,
 				21B831252823F85D00E209EB /* CustomSheet.swift in Sources */,
+				4D52137F2D71A3AD00290EA1 /* ColorThemeSettingSheetView.swift in Sources */,
 				21EF7003281A8A8C00B60288 /* EdgeRectangle.swift in Sources */,
 				21059BB228210FF40056CA6E /* CoreDataManager.swift in Sources */,
 				21EF6FFC281A7D1200B60288 /* TextAlert.swift in Sources */,
@@ -377,6 +402,7 @@
 				21284E88281FA12500D52722 /* LocationManager.swift in Sources */,
 				21EF6FF8281A6AFF00B60288 /* PlayerView.swift in Sources */,
 				21284E8A281FA12D00D52722 /* TimerManager.swift in Sources */,
+				4D52137D2D71A35300290EA1 /* SettingSection.swift in Sources */,
 				21059BBB28212CB20056CA6E /* PreviewTicketView.swift in Sources */,
 				21743870281926AC007923AB /* TicketListView.swift in Sources */,
 				21638D7B28194D99001AA45A /* RecordView.swift in Sources */,
@@ -394,7 +420,9 @@
 				21222F3C2817CDB200BFCA6E /* Line.swift in Sources */,
 				21059BB028210F5C0056CA6E /* TicketListViewModel.swift in Sources */,
 				2138E4B7281BB19500B26CA9 /* AudioManager.swift in Sources */,
+				4D5213742D71A21000290EA1 /* DataManageSettingView.swift in Sources */,
 				21284E8E281FAFB400D52722 /* RecordManager.swift in Sources */,
+				4D5213722D71A1D900290EA1 /* ImageManageSettingView.swift in Sources */,
 				2174387428193658007923AB /* Style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
