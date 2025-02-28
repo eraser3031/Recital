@@ -26,7 +26,7 @@ extension PHPickerConfiguration {
 struct PhotoPicker: UIViewControllerRepresentable {
     
     let configuration: PHPickerConfiguration
-    @Binding var images: [UIImage]
+    @Binding var image: UIImage?
     @Binding var isPresented: Bool
     
     func makeUIViewController(context: Context) -> PHPickerViewController {
@@ -49,19 +49,14 @@ struct PhotoPicker: UIViewControllerRepresentable {
         }
         
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-            
             let itemProviders = results.map{ $0.itemProvider }
-            
-            var tempImages: [UIImage] = []
-            
             itemProviders.forEach { itemProvider in
                 if itemProvider.canLoadObject(ofClass: UIImage.self) {
                     itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
                         if let uiImage = image as? UIImage
                         {
-                            tempImages.append(uiImage)
                             self?.parent.isPresented = false
-                            self?.parent.images = tempImages
+                            self?.parent.image = uiImage
                         }
                     }
                 }

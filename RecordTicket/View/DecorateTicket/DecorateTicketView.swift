@@ -17,7 +17,7 @@ struct DecorateTicketView: View {
     
     @State private var title: String
     @State private var color: TicketColor
-    @State private var images: [UIImage]
+    @State private var image: UIImage?
     @State private var shape: TicketShape
     
     @State private var showPhotoPicker = false
@@ -30,11 +30,6 @@ struct DecorateTicketView: View {
         self.title = record.title ?? ""
         self.color = record.ticket?.ticketColor ?? .pink
         self.shape = record.ticket?.ticketShape ?? .rectangle
-        if let imageName = record.ticket?.imageName {
-            self.images = [ImageManager.instance.getImage(named: imageName)]
-        } else {
-            self.images = []
-        }
     }
     
     private let colorColumns = [GridItem](repeating: GridItem(spacing: 20), count: 4)
@@ -53,7 +48,7 @@ struct DecorateTicketView: View {
                     
                     PreviewTicketView(title: $title,
                                       color: $color,
-                                      image: $images,
+                                      image: $image,
                                       shape: $shape,
                                       date: record.date ?? Date(),
                                       location: record.location ?? "",
@@ -103,7 +98,7 @@ struct DecorateTicketView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(role: .destructive) {
-                        vm.updateRecord(record: record, title: title, color: color, image: images.first, shape: shape)
+                        vm.updateRecord(record: record, title: title, color: color, image: image, shape: shape)
                         dismiss()
                     } label: {
                         Text("완료")
@@ -116,6 +111,13 @@ struct DecorateTicketView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .task {
+            guard let imageName = record.ticket?.imageName else { return }
+            DispatchQueue.main.async {
+                let image = ImageManager.instance.getImage(named: imageName)
+                self.image = image
+            }
+        }
     }
     
     private var titleBox: some View {
@@ -156,7 +158,7 @@ struct DecorateTicketView: View {
                         Image(systemName: "plus")
                             .font(.largeTitle.weight(.semibold))
                         
-                        if let image = images.last {
+                        if let image {
                             Image(uiImage: image)
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
@@ -165,7 +167,7 @@ struct DecorateTicketView: View {
                     }
                 )
             
-            Text(images.count == 0 ? "배경을 추가해주세요" : "배경을 바꾸려면 탭하세요")
+            Text(image == nil ? "배경을 추가해주세요" : "배경을 바꾸려면 탭하세요")
                 .font(.headline.weight(.bold))
         }
         .contentShape(Rectangle())
@@ -174,9 +176,7 @@ struct DecorateTicketView: View {
         }
         .sheet(isPresented: $showPhotoPicker) {
             let configuration = PHPickerConfiguration.config
-            PhotoPicker(configuration: configuration,
-                        images: $images,
-                        isPresented: $showPhotoPicker)
+            PhotoPicker(configuration: configuration, image: $image, isPresented: $showPhotoPicker)
         }
     }
     
