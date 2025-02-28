@@ -59,9 +59,11 @@ struct PlayerView: View {
                         Image(uiImage: recodeImage)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
+                            .transition(.opacity)
                     }
                     Color.black.opacity(0.1)
                 }
+                .animation(.smooth, value: recodeImage)
             )
             .cornerRadius(1000, corners: [.bottomLeft, .bottomRight])
             .padding(.bottom)
