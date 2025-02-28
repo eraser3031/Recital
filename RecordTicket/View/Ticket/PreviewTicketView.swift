@@ -13,7 +13,7 @@ struct PreviewTicketView: View {
     
     @Binding var title: String
     @Binding var color: TicketColor
-    @Binding var image: [UIImage]
+    @Binding var image: UIImage?
     @Binding var shape: TicketShape
     
     var date: Date
@@ -87,8 +87,8 @@ struct PreviewTicketView: View {
     private var outsideMainPart: some View {
         GeometryReader { geo in
             HStack {
-                if let background = image.last {
-                    Image( background.cgImage!, scale: 1, orientation: .left, label: Text(""))
+                if let image, let cgImage = image.cgImage {
+                    Image(cgImage, scale: 1, orientation: .left, label: Text(""))
                         .resizable()
                         .scaledToFill()
                         .frame(width: geo.size.width / 5 * 4, height: geo.size.height)

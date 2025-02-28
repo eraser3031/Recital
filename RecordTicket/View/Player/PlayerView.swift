@@ -15,6 +15,7 @@ struct PlayerView: View {
     var record: Record
     @State private var value: Double = 0.0
     @State private var isEditing = false
+    @State private var recodeImage: UIImage?
 
     let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
 
@@ -28,13 +29,15 @@ struct PlayerView: View {
             .ignoresSafeArea(.all, edges: .top)
             navigationBar
         }
-        .onAppear {
-            guard
-                let imageName = record.ticket?.imageName,
-                let fileName = record.fileName
-            else { return }
-            let image = ImageManager.instance.getImage(named: imageName)
-            
+        .task {
+            guard let fileName = record.fileName else { return }
+            var image: UIImage? = nil
+            if let imageName = record.ticket?.imageName {
+                DispatchQueue.main.async {
+                    image = ImageManager.instance.getImage(named: imageName)
+                    self.recodeImage = image
+                }
+            }
             am.startPlayer(fileName: fileName, title: record.title ?? "Untitled", image: image)
         }
         .onReceive(timer) { _ in
@@ -52,8 +55,8 @@ struct PlayerView: View {
         Rectangle()
             .overlay(
                 ZStack {
-                    if let imageName = record.ticket?.imageName {
-                        Image(uiImage: ImageManager.instance.getImage(named: imageName))
+                    if let recodeImage {
+                        Image(uiImage: recodeImage)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                     }

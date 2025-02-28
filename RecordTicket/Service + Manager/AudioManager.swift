@@ -14,7 +14,7 @@ final class AudioManager: ObservableObject {
     var player: AVAudioPlayer?
     @Published private(set) var isLooping: Bool = false
     
-    func startPlayer(fileName: String, title: String, image: UIImage) {
+    func startPlayer(fileName: String, title: String, image: UIImage?) {
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
@@ -51,12 +51,9 @@ final class AudioManager: ObservableObject {
         commandCenter.seekBackwardCommand.isEnabled = true
     }
     
-    func remoteCommandInfoCenterSetting(title: String, image: UIImage) {
+    func remoteCommandInfoCenterSetting(title: String, image: UIImage?) {
         let center = MPNowPlayingInfoCenter.default()
         var nowPlayingInfo = center.nowPlayingInfo ?? [String: Any]()
-        nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: CGSize(width: 250, height: 250), requestHandler: { _ in
-            return image
-        })
         nowPlayingInfo[MPMediaItemPropertyTitle] = title
         nowPlayingInfo[MPMediaItemPropertyArtist] = "Re cital"
         // 콘텐츠 총 길이
@@ -65,12 +62,12 @@ final class AudioManager: ObservableObject {
         nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = player?.rate
         // 콘텐츠 현재 재생시간
         nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = player?.currentTime
-        
+        if let image {
+            nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: CGSize(width: 250, height: 250), requestHandler: { _ in
+                return image
+            })
+        }
         center.nowPlayingInfo = nowPlayingInfo
-        
-//        if let albumCoverPage = UIImage(named: "Pingu") {
-//            nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: albumCoverPage.size, requestHandler: { size in return albumCoverPage })
-//        }
     }
         
         func playPause() {
