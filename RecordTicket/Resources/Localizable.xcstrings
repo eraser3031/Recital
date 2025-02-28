@@ -4,6 +4,9 @@
     "" : {
 
     },
+    " Dark Mode" : {
+
+    },
     "%@:%@.%@" : {
       "localizations" : {
         "en" : {
@@ -20,13 +23,55 @@
     "1.0.0" : {
 
     },
+    "All photo data will be permanently deleted and cannot be undone. Are you sure you want to proceed?" : {
+
+    },
+    "All recordings, photos, and all data will be permanently deleted and cannot be undone. Are you sure you want to proceed?" : {
+
+    },
+    "App" : {
+
+    },
+    "Appearance" : {
+
+    },
+    "Dark" : {
+
+    },
+    "Delete" : {
+
+    },
+    "Delete All Data" : {
+
+    },
+    "Delete Picture Data" : {
+
+    },
     "Gongju" : {
+
+    },
+    "Info" : {
+
+    },
+    "Interface and Theme" : {
 
     },
     "Key" : {
       "extractionState" : "manual"
     },
+    "Light" : {
+
+    },
+    "Light Mode" : {
+
+    },
     "Made by eraiser" : {
+
+    },
+    "Permissions" : {
+
+    },
+    "Personal" : {
 
     },
     "Re cital" : {
@@ -38,6 +83,12 @@
     "Setting" : {
 
     },
+    "System" : {
+
+    },
+    "Theme" : {
+
+    },
     "Tickets" : {
 
     },
@@ -47,22 +98,10 @@
     "감상 순" : {
 
     },
-    "개인정보" : {
-
-    },
-    "권한 설정" : {
-
-    },
     "네" : {
 
     },
     "녹음 중.." : {
-
-    },
-    "다크 모드" : {
-
-    },
-    "라이트 모드" : {
 
     },
     "배경을 바꾸려면 탭하세요" : {
@@ -71,40 +110,19 @@
     "배경을 추가해주세요" : {
 
     },
-    "사진 데이터 삭제" : {
-
-    },
     "삭제" : {
 
     },
     "수정" : {
 
     },
-    "시스템 설정" : {
-
-    },
     "아니요" : {
-
-    },
-    "앱" : {
-
-    },
-    "앱 정보" : {
 
     },
     "완료" : {
 
     },
-    "전체 데이터 삭제" : {
-
-    },
     "정말로 녹음을 취소하시겠어요?" : {
-
-    },
-    "정말로 모든 녹음, 사진을 비롯한 **모든 데이터**가 삭제되고 취소할 수 없어요. 정말로 삭제하시겠어요?" : {
-
-    },
-    "정말로 모든 사진 데이터가 삭제되고 취소할 수 없어요. 정말로 삭제하시겠어요?" : {
 
     },
     "정말로 해당 녹음을 삭제하시겠어요?" : {
@@ -119,13 +137,7 @@
     "취소" : {
 
     },
-    "테마" : {
-
-    },
     "티켓 꾸미기" : {
-
-    },
-    "화면 테마" : {
 
     }
   },
