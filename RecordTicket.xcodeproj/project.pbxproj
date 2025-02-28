@@ -68,7 +68,6 @@
 		21222F422817D8C000BFCA6E /* SpoqaHanSansNeo-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Bold.otf"; sourceTree = "<group>"; };
 		21222F432817D8C000BFCA6E /* SpoqaHanSansNeo-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Regular.otf"; sourceTree = "<group>"; };
 		21222F462817D96000BFCA6E /* Gilroy-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-ExtraBold.otf"; sourceTree = "<group>"; };
-		21222F482817DA1800BFCA6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		21284E87281FA12500D52722 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		21284E89281FA12D00D52722 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		21284E8D281FAFB400D52722 /* RecordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManager.swift; sourceTree = "<group>"; };
@@ -175,7 +174,6 @@
 		211C69D82816BA6D00869592 /* RecordTicket */ = {
 			isa = PBXGroup;
 			children = (
-				21222F482817DA1800BFCA6E /* Info.plist */,
 				21EF6FFF281A86FA00B60288 /* RecitalModel.xcdatamodeld */,
 				211C69D92816BA6D00869592 /* RecordTicketApp.swift */,
 				21284E83281FA06400D52722 /* View */,
