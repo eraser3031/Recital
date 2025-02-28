@@ -52,6 +52,7 @@
 		4D52137A2D71A2F000290EA1 /* InfoSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5213792D71A2F000290EA1 /* InfoSettingView.swift */; };
 		4D52137D2D71A35300290EA1 /* SettingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D52137C2D71A35300290EA1 /* SettingSection.swift */; };
 		4D52137F2D71A3AD00290EA1 /* ColorThemeSettingSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D52137E2D71A3AD00290EA1 /* ColorThemeSettingSheetView.swift */; };
+		4D5213812D71ABE100290EA1 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5213802D71ABE100290EA1 /* PlayerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +102,7 @@
 		4D5213792D71A2F000290EA1 /* InfoSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSettingView.swift; sourceTree = "<group>"; };
 		4D52137C2D71A35300290EA1 /* SettingSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSection.swift; sourceTree = "<group>"; };
 		4D52137E2D71A3AD00290EA1 /* ColorThemeSettingSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemeSettingSheetView.swift; sourceTree = "<group>"; };
+		4D5213802D71ABE100290EA1 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 			children = (
 				21EF6FF7281A6AFF00B60288 /* PlayerView.swift */,
 				21059BC028225C370056CA6E /* CustomPlayerSlider.swift */,
+				4D5213802D71ABE100290EA1 /* PlayerViewModel.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				21EF7001281A86FA00B60288 /* RecitalModel.xcdatamodeld in Sources */,
 				21A6C2432823B74A00853D8B /* Modifier.swift in Sources */,
 				211C69DA2816BA6D00869592 /* RecordTicketApp.swift in Sources */,
+				4D5213812D71ABE100290EA1 /* PlayerViewModel.swift in Sources */,
 				21638D7F281976E0001AA45A /* PhotoPicker.swift in Sources */,
 				21222F3C2817CDB200BFCA6E /* Line.swift in Sources */,
 				21059BB028210F5C0056CA6E /* TicketListViewModel.swift in Sources */,
@@ -570,6 +574,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -603,6 +608,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
