@@ -144,6 +144,16 @@ struct PlayerView: View {
 
             Spacer()
 
+            // MARK: 차후 피처 추가 시 활용
+            /*
+            Button(role: .destructive) {
+                // TODO: Info 시트 띄우기
+            } label: {
+                Image(systemName: "ellipsis")
+                    .font(.headline)
+            }
+            .buttonStyle(FloatButtonStyle())
+             */
 
         }
         .padding(.horizontal, 20)
