@@ -23,7 +23,7 @@ struct CustomTabBarContainerView<Content: View>: View {
     }
     
     var body: some View {
-        ZStack(alignment: .bottom) {
+        ZStack {
             content
         }
         .safeAreaInset(edge: .bottom) {
