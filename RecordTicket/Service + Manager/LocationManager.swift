@@ -7,23 +7,18 @@
 
 import Foundation
 import CoreLocation
+import Observation
 
-final class LocationManager: NSObject, ObservableObject {
+@Observable final class LocationManager: NSObject {
     
     private let geocoder = CLGeocoder()
     private let locationManager = CLLocationManager()
     
-    @Published var status: CLAuthorizationStatus? {
-        willSet { objectWillChange.send() }
-    }
-    
-    @Published var location: CLLocation? {
-        willSet { objectWillChange.send() }
-    }
-    
-    @Published var placemark: CLPlacemark? {
-        willSet { objectWillChange.send() }
-    }
+    var status: CLAuthorizationStatus?
+
+    var location: CLLocation?
+
+    var placemark: CLPlacemark?
     
     override init() {
         super.init()

@@ -10,7 +10,7 @@ import PhotosUI
 
 struct DecorateTicketView: View {
     
-    @StateObject var vm = DecorateTicketViewModel()
+    @State var vm = DecorateTicketViewModel()
     @ObservedObject var record: Record
     
     @State private var decoCase: DecoCase = .title

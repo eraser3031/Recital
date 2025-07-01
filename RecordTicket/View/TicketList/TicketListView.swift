@@ -14,7 +14,7 @@ enum AlignmentCase: String, CaseIterable {
 
 struct TicketListView: View {
     
-    @StateObject var vm = TicketListViewModel()
+    @State var vm = TicketListViewModel()
     
     @Binding var showRecordView: Bool
     

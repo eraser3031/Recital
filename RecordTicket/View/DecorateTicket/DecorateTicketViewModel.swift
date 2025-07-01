@@ -7,8 +7,9 @@
 
 import Foundation
 import UIKit
+import Observation
 
-class DecorateTicketViewModel: ObservableObject {
+@Observable class DecorateTicketViewModel {
     
     let manager = CoreDataManager.instance
     
