@@ -7,8 +7,9 @@
 
 import Foundation
 import AVKit
+import Observation
 
-final class RecordManager: ObservableObject {
+@Observable final class RecordManager {
     var recorder: AVAudioRecorder!
     var fileName: String?
     

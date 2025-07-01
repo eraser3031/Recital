@@ -8,11 +8,12 @@
 import Foundation
 import AVKit
 import MediaPlayer
+import Observation
 
-final class AudioManager: ObservableObject {
+@Observable final class AudioManager {
     
     var player: AVAudioPlayer?
-    @Published private(set) var isLooping: Bool = false
+    private(set) var isLooping: Bool = false
     
     func startPlayer(fileName: String, title: String, image: UIImage?) {
         do {

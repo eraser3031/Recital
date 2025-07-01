@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import Observation
 
-class TimerManager: ObservableObject {
+@Observable class TimerManager {
     
-    @Published var minutesString = "00"
-    @Published var secondsString = "00"
-    @Published var millisecondsString = "00"
-    @Published var mode: stopWatchMode = .stopped
+    var minutesString = "00"
+    var secondsString = "00"
+    var millisecondsString = "00"
+    var mode: stopWatchMode = .stopped
     
     var secondsElapsed = 0.0
     var completedSecondsElapsed = 0.0

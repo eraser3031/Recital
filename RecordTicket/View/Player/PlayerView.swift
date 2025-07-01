@@ -10,7 +10,7 @@ import SwiftUI
 struct PlayerView: View {
     @Environment(\.dismiss) var dismiss
     
-    @StateObject var am = AudioManager()
+    @State var am = AudioManager()
     
     var record: Record
     @State private var value: Double = 0.0

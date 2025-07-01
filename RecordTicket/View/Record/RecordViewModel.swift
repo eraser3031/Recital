@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import Observation
 
-class RecordViewModel: ObservableObject {
+@Observable class RecordViewModel {
     
     let manager = CoreDataManager.instance
     

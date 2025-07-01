@@ -10,11 +10,11 @@ import AVKit
 
 struct RecordView: View {
     
-    @StateObject var vm = RecordViewModel()
-    
-    @StateObject var rm = RecordManager()
-    @StateObject var tm = TimerManager()
-    @StateObject var lm = LocationManager()
+    @State var vm = RecordViewModel()
+
+    @State var rm = RecordManager()
+    @State var tm = TimerManager()
+    @State var lm = LocationManager()
     
     @Environment(\.dismiss) var dismiss
     @State private var showDecorateTicketView = false

@@ -8,11 +8,12 @@
 import Foundation
 import CoreData
 import SwiftUI
+import Observation
 
-class TicketListViewModel: ObservableObject {
+@Observable class TicketListViewModel {
     
-    @Published var records: [Record] = []
-    @Published var alignCase: AlignmentCase = .recent
+    var records: [Record] = []
+    var alignCase: AlignmentCase = .recent
     
     let manager = CoreDataManager.instance
     
